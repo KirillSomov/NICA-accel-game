@@ -458,6 +458,23 @@
         </Group>
         <Group>
           <GroupName>GUI</GroupName>
+          <Files>
+            <File>
+              <FileName>gui_impl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\GUI\gui_impl.c</FilePath>
+            </File>
+            <File>
+              <FileName>gui_impl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\lib\GUI\gui_impl.h</FilePath>
+            </File>
+            <File>
+              <FileName>SGUI_dataTransfer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\GUI\SGUI_dataTransfer.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>CMSIS</GroupName>
@@ -576,6 +593,38 @@
         </Group>
         <Group>
           <GroupName>assets</GroupName>
+          <Files>
+            <File>
+              <FileName>circle_booster_8bpp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\assets\circle_booster_8bpp.c</FilePath>
+            </File>
+            <File>
+              <FileName>detector_8bpp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\assets\detector_8bpp.c</FilePath>
+            </File>
+            <File>
+              <FileName>ions_source_8bpp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\assets\ions_source_8bpp.c</FilePath>
+            </File>
+            <File>
+              <FileName>linear_booster_8bpp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\assets\linear_booster_8bpp.c</FilePath>
+            </File>
+            <File>
+              <FileName>jinr_building_main_8bpp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\assets\jinr_building_main_8bpp.c</FilePath>
+            </File>
+            <File>
+              <FileName>nica_logo_8bpp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\assets\nica_logo_8bpp.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>LCD</GroupName>
@@ -646,19 +695,9 @@
               <FilePath>.\lib\Square-GUI\SGUI_canvas.h</FilePath>
             </File>
             <File>
-              <FileName>SGUI_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\lib\Square-GUI\SGUI_config.c</FilePath>
-            </File>
-            <File>
               <FileName>SGUI_config.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\lib\Square-GUI\SGUI_config.h</FilePath>
-            </File>
-            <File>
-              <FileName>SGUI_dataTransfer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\lib\Square-GUI\SGUI_dataTransfer.c</FilePath>
             </File>
             <File>
               <FileName>SGUI_dataTransfer.h</FileName>
@@ -704,6 +743,16 @@
               <FileName>SGUI_system.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\lib\Square-GUI\SGUI_system.h</FilePath>
+            </File>
+            <File>
+              <FileName>SGUI_picture.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\Square-GUI\SGUI_picture.c</FilePath>
+            </File>
+            <File>
+              <FileName>SGUI_picture.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\lib\Square-GUI\SGUI_picture.h</FilePath>
             </File>
           </Files>
         </Group>
