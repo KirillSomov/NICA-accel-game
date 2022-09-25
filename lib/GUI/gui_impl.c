@@ -62,6 +62,12 @@ static void page_0_init(void)
   SGUI_setPage(0);
   SGUI_clearPage(White);
   SGUI_drawFilledFrame(270, 0, 275, 599, 0, 0, 0, 0, 0x6BA4);
+  SGUI_printString("Для знакомства с нами\n    ЖМИ НА ИКОНКИ", 350, 140, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Ускорительный\nкомплекс NICA", 735, 140, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("ОИЯИ", 65, 260, FONT_SIZE_48, 0xFFFF, 0x4BC6);
+  SGUI_printString("основан в 1956 г.", 30, 315, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("     Наука\nсближает народы", 30, 390, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Мы из Дубны =)", 30, 550, FONT_SIZE_24, 0xFFFF, 0x3823);
   SGUI_createButton(P0_B_START_P,
                     P0_B_START_X0,
                     P0_B_START_Y0,
@@ -253,6 +259,11 @@ static void page_1_init(void)
   SGUI_setPage(1);
   SGUI_clearPage(White);
   SGUI_drawFilledFrame(270, 0, 275, 599, 0, 0, 0, 0, 0x6BA4);
+  SGUI_printString("Получение пучка заряженных частиц", 285, 20, FONT_SIZE_48, 0xFFFF, 0x4BC6);
+  SGUI_printString("Жми пальцем внутри области и получай\n      пучок заряженных частиц", 415, 75, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Сверхпроводящий\n источник ионов\n   тяжёлых\n  элементов\n  \"КРИОН-6Т\"", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("  Обеспечивает\n ускорительный\nкомплекс пучками\n ионов тяжелых\n   элементов:\nС, Кr, Ar, Xe, Bi, Au.", 20, 300, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Разработан в Дубне\n    создатель:\n проф. Е.Д. Донец", 20, 500, FONT_SIZE_24, 0xFFFF, 0x0000);
   SGUI_createButton(P1_B_BACK_TO_START_P,
                     P1_B_BACK_TO_START_X0,
                     P1_B_BACK_TO_START_Y0,
@@ -335,6 +346,13 @@ static void page_2_init(void)
   SGUI_setPage(2);
   SGUI_clearPage(White);
   SGUI_drawFilledFrame(270, 0, 275, 599, 0, 0, 0, 0, 0x6BA4);
+  SGUI_printString("Ускорение пучка заряженных частиц", 285, 20, FONT_SIZE_48, 0xFFFF, 0x4BC6);
+  SGUI_printString("1. Включи питание ускорителя\n2. Запусти ускорительные станции\n3. Проведи пучок через ускоритель", 420, 75, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Линейный ускоритель тяжелых ионов", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Ускоряет пучки ионов тяжелых элементов до промежуточных энергий ~5 МегаЭлектронвольт.", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("1 МэВ = 1.6E-19 Дж.", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Является частью комплекса NICA", 20, 130, FONT_SIZE_24, 0xFFFF, 0x0000);
+  SGUI_printString("подключите станции к системе питания", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
   SGUI_createButton(P2_B_BACK_TO_START_P,
                     P2_B_BACK_TO_START_X0,
                     P2_B_BACK_TO_START_Y0,
@@ -417,6 +435,12 @@ static void page_3_init(void)
   SGUI_setPage(3);
   SGUI_clearPage(White);
   SGUI_drawFilledFrame(270, 0, 275, 599, 0, 0, 0, 0, 0x6BA4);
+  SGUI_printString("Ускорение пучка заряженных частиц", 285, 20, FONT_SIZE_48, 0xFFFF, 0x4BC6);
+  SGUI_printString("1. Включи питание ускорителя\n2. Запусти ускорительные станции и проведи пучок через станции", 420, 75, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Циклический ускоритель Бустерный синхротрон", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Накапливает и ускоряет пучки ионов тяжелых элементов до энергий ~600 МегаЭлектронвольт.", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("1 МэВ = 1.6E-19 Дж.", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Является частью комплекса NICA", 20, 130, FONT_SIZE_24, 0xFFFF, 0x0000);
   SGUI_createButton(P3_B_BACK_TO_START_P,
                     P3_B_BACK_TO_START_X0,
                     P3_B_BACK_TO_START_Y0,
@@ -499,6 +523,11 @@ static void page_4_init(void)
   SGUI_setPage(4);
   SGUI_clearPage(White);
   SGUI_drawFilledFrame(270, 0, 275, 599, 0, 0, 0, 0, 0x6BA4);
+  SGUI_printString("Детектор элементарных частиц", 285, 20, FONT_SIZE_48, 0xFFFF, 0x4BC6);
+  SGUI_printString("1. Подготовь (закрась) фигуры с веществом\n2. Проведи пучок через вещество", 420, 75, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Детектор BM@N", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Эксперимент BM@N является нулевой фазой мега-сайенс проекта NICA (Nuclotron-based Ion Collider fAcility) - первым работающим экспериментом на фиксированной мишени", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Является частью комплекса NICA", 20, 130, FONT_SIZE_24, 0xFFFF, 0x0000);
   SGUI_createButton(P4_B_BACK_TO_START_P,
                     P4_B_BACK_TO_START_X0,
                     P4_B_BACK_TO_START_Y0,
