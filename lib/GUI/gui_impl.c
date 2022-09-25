@@ -6,7 +6,9 @@
 SGUI_pageStorageCreate(0, 0, 5, 6);
 SGUI_pageStorageCreate(1, 0, 3, 1);
 SGUI_pageStorageCreate(2, 0, 3, 1);
-SGUI_pagesStorageCreate(3);
+SGUI_pageStorageCreate(3, 0, 3, 1);
+SGUI_pageStorageCreate(4, 0, 3, 1);
+SGUI_pagesStorageCreate(5);
 SGUI_guiStorageCreate();
 
 
@@ -23,6 +25,8 @@ void GUI_pagesStorageInit(void)
   GUI.pages[0] = &page_0;
   GUI.pages[1] = &page_1;
   GUI.pages[2] = &page_2;
+  GUI.pages[3] = &page_3;
+  GUI.pages[4] = &page_4;
 }
 
 
@@ -39,6 +43,16 @@ static void btn_picIonsSource(void)
 static void btn_picLinearBooster(void)
 {
   SGUI_showPage(2);
+}
+
+static void btn_picCircleBooster(void)
+{
+  SGUI_showPage(3);
+}
+
+static void btn_picDetector(void)
+{
+  SGUI_showPage(4);
 }
 
 
@@ -99,6 +113,40 @@ static void page_0_init(void)
                     P0_B_LINEAR_BOOSTER_STATE,
                     P0_B_LINEAR_BOOSTER_DELAY,
                     P0_B_LINEAR_BOOSTER_ACT);
+  SGUI_createButton(P0_B_CIRCLE_BOOSTER_P,
+                    P0_B_CIRCLE_BOOSTER_X0,
+                    P0_B_CIRCLE_BOOSTER_Y0,
+                    P0_B_CIRCLE_BOOSTER_X1,
+                    P0_B_CIRCLE_BOOSTER_Y1,
+                    P0_B_CIRCLE_BOOSTER_RX,
+                    P0_B_CIRCLE_BOOSTER_RY,
+                    P0_B_CIRCLE_BOOSTER_FW,
+                    P0_B_CIRCLE_BOOSTER_BC,
+                    P0_B_CIRCLE_BOOSTER_FC,
+                    P0_B_CIRCLE_BOOSTER_T,
+                    P0_B_CIRCLE_BOOSTER_TC,
+                    P0_B_CIRCLE_BOOSTER_TMX,
+                    P0_B_CIRCLE_BOOSTER_TMY,
+                    P0_B_CIRCLE_BOOSTER_STATE,
+                    P0_B_CIRCLE_BOOSTER_DELAY,
+                    P0_B_CIRCLE_BOOSTER_ACT);
+  SGUI_createButton(P0_B_DETECTOR_P,
+                    P0_B_DETECTOR_X0,
+                    P0_B_DETECTOR_Y0,
+                    P0_B_DETECTOR_X1,
+                    P0_B_DETECTOR_Y1,
+                    P0_B_DETECTOR_RX,
+                    P0_B_DETECTOR_RY,
+                    P0_B_DETECTOR_FW,
+                    P0_B_DETECTOR_BC,
+                    P0_B_DETECTOR_FC,
+                    P0_B_DETECTOR_T,
+                    P0_B_DETECTOR_TC,
+                    P0_B_DETECTOR_TMX,
+                    P0_B_DETECTOR_TMY,
+                    P0_B_DETECTOR_STATE,
+                    P0_B_DETECTOR_DELAY,
+                    P0_B_DETECTOR_ACT);
   SGUI_createPicture(P0_PIC_JINR_P,
                      P0_PIC_JINR_PIC,
                      P0_PIC_JINR_X,
@@ -277,7 +325,7 @@ static void btn_p2Clear(void)
 
 static void btn_p2Next(void)
 {
-  ;
+  SGUI_showPage(3);
 }
 
 
@@ -352,12 +400,178 @@ static void page_2_init(void)
 }
 
 
+static void btn_p3Clear(void)
+{
+  ;
+}
+
+static void btn_p3Next(void)
+{
+  SGUI_showPage(4);
+}
+
+
+static void page_3_init(void)
+{
+  SGUI_LinkPageToLcd(3, PAGE3_START_ADDR);
+  SGUI_setPage(3);
+  SGUI_clearPage(White);
+  SGUI_drawFilledFrame(270, 0, 275, 599, 0, 0, 0, 0, 0x6BA4);
+  SGUI_createButton(P3_B_BACK_TO_START_P,
+                    P3_B_BACK_TO_START_X0,
+                    P3_B_BACK_TO_START_Y0,
+                    P3_B_BACK_TO_START_X1,
+                    P3_B_BACK_TO_START_Y1,
+                    P3_B_BACK_TO_START_RX,
+                    P3_B_BACK_TO_START_RY,
+                    P3_B_BACK_TO_START_FW,
+                    P3_B_BACK_TO_START_BC,
+                    P3_B_BACK_TO_START_FC,
+                    P3_B_BACK_TO_START_T,
+                    P3_B_BACK_TO_START_TC,
+                    P3_B_BACK_TO_START_TMX,
+                    P3_B_BACK_TO_START_TMY,
+                    P3_B_BACK_TO_START_STATE,
+                    P3_B_BACK_TO_START_DELAY,
+                    P3_B_BACK_TO_START_ACT);
+  SGUI_createButton(P3_B_CLEAR_P,
+                    P3_B_CLEAR_X0,
+                    P3_B_CLEAR_Y0,
+                    P3_B_CLEAR_X1,
+                    P3_B_CLEAR_Y1,
+                    P3_B_CLEAR_RX,
+                    P3_B_CLEAR_RY,
+                    P3_B_CLEAR_FW,
+                    P3_B_CLEAR_BC,
+                    P3_B_CLEAR_FC,
+                    P3_B_CLEAR_T,
+                    P3_B_CLEAR_TC,
+                    P3_B_CLEAR_TMX,
+                    P3_B_CLEAR_TMY,
+                    P3_B_CLEAR_STATE,
+                    P3_B_CLEAR_DELAY,
+                    P3_B_CLEAR_ACT);
+  SGUI_createButton(P3_B_NEXT_P,
+                    P3_B_NEXT_X0,
+                    P3_B_NEXT_Y0,
+                    P3_B_NEXT_X1,
+                    P3_B_NEXT_Y1,
+                    P3_B_NEXT_RX,
+                    P3_B_NEXT_RY,
+                    P3_B_NEXT_FW,
+                    P3_B_NEXT_BC,
+                    P3_B_NEXT_FC,
+                    P3_B_NEXT_T,
+                    P3_B_NEXT_TC,
+                    P3_B_NEXT_TMX,
+                    P3_B_NEXT_TMY,
+                    P3_B_NEXT_STATE,
+                    P3_B_NEXT_DELAY,
+                    P3_B_NEXT_ACT);
+  SGUI_createPicture(P3_PIC_CIRCLE_BOOSTER_P,
+                     P3_PIC_CIRCLE_BOOSTER_PIC,
+                     P3_PIC_CIRCLE_BOOSTER_X,
+                     P3_PIC_CIRCLE_BOOSTER_Y,
+                     P3_PIC_CIRCLE_BOOSTER_W,
+                     P3_PIC_CIRCLE_BOOSTER_H,
+                     P3_PIC_CIRCLE_BOOSTER_RX,
+                     P3_PIC_CIRCLE_BOOSTER_RY,
+                     P3_PIC_CIRCLE_BOOSTER_FW,
+                     P3_PIC_CIRCLE_BOOSTER_FC);
+  SGUI_drawPage(3);
+}
+
+
+static void btn_p4Clear(void)
+{
+  ;
+}
+
+static void btn_p4Next(void)
+{
+  ;
+}
+
+
+static void page_4_init(void)
+{
+  SGUI_LinkPageToLcd(4, PAGE4_START_ADDR);
+  SGUI_setPage(4);
+  SGUI_clearPage(White);
+  SGUI_drawFilledFrame(270, 0, 275, 599, 0, 0, 0, 0, 0x6BA4);
+  SGUI_createButton(P4_B_BACK_TO_START_P,
+                    P4_B_BACK_TO_START_X0,
+                    P4_B_BACK_TO_START_Y0,
+                    P4_B_BACK_TO_START_X1,
+                    P4_B_BACK_TO_START_Y1,
+                    P4_B_BACK_TO_START_RX,
+                    P4_B_BACK_TO_START_RY,
+                    P4_B_BACK_TO_START_FW,
+                    P4_B_BACK_TO_START_BC,
+                    P4_B_BACK_TO_START_FC,
+                    P4_B_BACK_TO_START_T,
+                    P4_B_BACK_TO_START_TC,
+                    P4_B_BACK_TO_START_TMX,
+                    P4_B_BACK_TO_START_TMY,
+                    P4_B_BACK_TO_START_STATE,
+                    P4_B_BACK_TO_START_DELAY,
+                    P4_B_BACK_TO_START_ACT);
+  SGUI_createButton(P4_B_CLEAR_P,
+                    P4_B_CLEAR_X0,
+                    P4_B_CLEAR_Y0,
+                    P4_B_CLEAR_X1,
+                    P4_B_CLEAR_Y1,
+                    P4_B_CLEAR_RX,
+                    P4_B_CLEAR_RY,
+                    P4_B_CLEAR_FW,
+                    P4_B_CLEAR_BC,
+                    P4_B_CLEAR_FC,
+                    P4_B_CLEAR_T,
+                    P4_B_CLEAR_TC,
+                    P4_B_CLEAR_TMX,
+                    P4_B_CLEAR_TMY,
+                    P4_B_CLEAR_STATE,
+                    P4_B_CLEAR_DELAY,
+                    P4_B_CLEAR_ACT);
+  SGUI_createButton(P4_B_NEXT_P,
+                    P4_B_NEXT_X0,
+                    P4_B_NEXT_Y0,
+                    P4_B_NEXT_X1,
+                    P4_B_NEXT_Y1,
+                    P4_B_NEXT_RX,
+                    P4_B_NEXT_RY,
+                    P4_B_NEXT_FW,
+                    P4_B_NEXT_BC,
+                    P4_B_NEXT_FC,
+                    P4_B_NEXT_T,
+                    P4_B_NEXT_TC,
+                    P4_B_NEXT_TMX,
+                    P4_B_NEXT_TMY,
+                    P4_B_NEXT_STATE,
+                    P4_B_NEXT_DELAY,
+                    P4_B_NEXT_ACT);
+  SGUI_createPicture(P4_PIC_DETECTOR_P,
+                     P4_PIC_DETECTOR_PIC,
+                     P4_PIC_DETECTOR_X,
+                     P4_PIC_DETECTOR_Y,
+                     P4_PIC_DETECTOR_W,
+                     P4_PIC_DETECTOR_H,
+                     P4_PIC_DETECTOR_RX,
+                     P4_PIC_DETECTOR_RY,
+                     P4_PIC_DETECTOR_FW,
+                     P4_PIC_DETECTOR_FC);
+  SGUI_drawPage(4);
+}
+
+
 void gui_init(void)
 {
   GUI_pagesStorageInit();
   page_0_init();
   page_1_init();
   page_2_init();
+  page_3_init();
+  page_4_init();
   SGUI_showPage(0); 
 }
 
