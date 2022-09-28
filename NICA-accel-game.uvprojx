@@ -474,6 +474,26 @@
               <FileType>1</FileType>
               <FilePath>.\lib\GUI\SGUI_dataTransfer.c</FilePath>
             </File>
+            <File>
+              <FileName>game_linAccel.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\GUI\game_linAccel.c</FilePath>
+            </File>
+            <File>
+              <FileName>game_linAccel.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\lib\GUI\game_linAccel.h</FilePath>
+            </File>
+            <File>
+              <FileName>game_ions.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\GUI\game_ions.c</FilePath>
+            </File>
+            <File>
+              <FileName>game_ions.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\lib\GUI\game_ions.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

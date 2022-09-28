@@ -1,13 +1,15 @@
 
 #include "gui_impl.h"
 #include "LCD_api.h"
+#include "game_ions.h"
+#include "game_linAccel.h"
 
 
-SGUI_pageStorageCreate(0, 0, 5, 6);
-SGUI_pageStorageCreate(1, 0, 3, 1);
-SGUI_pageStorageCreate(2, 0, 3, 1);
-SGUI_pageStorageCreate(3, 0, 3, 1);
-SGUI_pageStorageCreate(4, 0, 3, 1);
+SGUI_pageStorageCreate(0, 0, 5, 6, 0);
+SGUI_pageStorageCreate(1, 1, 3, 1, 1);
+SGUI_pageStorageCreate(2, 0, 4, 1, 0);
+SGUI_pageStorageCreate(3, 0, 3, 1, 0);
+SGUI_pageStorageCreate(4, 0, 3, 1, 0);
 SGUI_pagesStorageCreate(5);
 SGUI_guiStorageCreate();
 
@@ -33,26 +35,31 @@ void GUI_pagesStorageInit(void)
 static void btn_start(void)
 {
   SGUI_showPage(1);
+  SGUI_idle(DELAY_BETWEEN_PAGES);
 }
 
 static void btn_picIonsSource(void)
 {
   SGUI_showPage(1);
+  SGUI_idle(DELAY_BETWEEN_PAGES);
 }
 
 static void btn_picLinearBooster(void)
 {
   SGUI_showPage(2);
+  SGUI_idle(DELAY_BETWEEN_PAGES);
 }
 
 static void btn_picCircleBooster(void)
 {
   SGUI_showPage(3);
+  SGUI_idle(DELAY_BETWEEN_PAGES);
 }
 
 static void btn_picDetector(void)
 {
   SGUI_showPage(4);
+  SGUI_idle(DELAY_BETWEEN_PAGES);
 }
 
 
@@ -64,7 +71,7 @@ static void page_0_init(void)
   SGUI_drawFilledFrame(270, 0, 275, 599, 0, 0, 0, 0, 0x6BA4);
   SGUI_printString("Для знакомства с нами\n    ЖМИ НА ИКОНКИ", 350, 140, FONT_SIZE_24, 0xFFFF, 0x4BC6);
   SGUI_printString("Ускорительный\nкомплекс NICA", 735, 140, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("ОИЯИ", 65, 260, FONT_SIZE_48, 0xFFFF, 0x4BC6);
+  SGUI_printString("ОИЯИ", 80, 260, FONT_SIZE_48, 0xFFFF, 0x4BC6);
   SGUI_printString("основан в 1956 г.", 30, 315, FONT_SIZE_24, 0xFFFF, 0x4BC6);
   SGUI_printString("     Наука\nсближает народы", 30, 390, FONT_SIZE_24, 0xFFFF, 0x4BC6);
   SGUI_printString("Мы из Дубны =)", 30, 550, FONT_SIZE_24, 0xFFFF, 0x3823);
@@ -240,16 +247,13 @@ static void page_0_init(void)
 static void btn_backToStart(void)
 {
   SGUI_showPage(0);
-}
-
-static void btn_p1Clear(void)
-{
-  ;
+  SGUI_idle(DELAY_BETWEEN_PAGES);
 }
 
 static void btn_p1Next(void)
 {
-  SGUI_showPage(2);;
+  SGUI_showPage(2);
+  SGUI_idle(DELAY_BETWEEN_PAGES);
 }
 
 
@@ -259,10 +263,10 @@ static void page_1_init(void)
   SGUI_setPage(1);
   SGUI_clearPage(White);
   SGUI_drawFilledFrame(270, 0, 275, 599, 0, 0, 0, 0, 0x6BA4);
-  SGUI_printString("Получение пучка заряженных частиц", 285, 20, FONT_SIZE_48, 0xFFFF, 0x4BC6);
+  SGUI_printString("Получение пучка заряженных частиц", 380, 20, FONT_SIZE_32, 0xFFFF, 0x4BC6);
   SGUI_printString("Жми пальцем внутри области и получай\n      пучок заряженных частиц", 415, 75, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("Сверхпроводящий\n источник ионов\n   тяжёлых\n  элементов\n  \"КРИОН-6Т\"", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("  Обеспечивает\n ускорительный\nкомплекс пучками\n ионов тяжелых\n   элементов:\nС, Кr, Ar, Xe, Bi, Au.", 20, 300, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString(" Сверхпроводящий\n  источник ионов\n тяжёлых элементов\n    \"КРИОН-6Т\"", 20, 145, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("  Обеспечивает\n ускорительный\nкомплекс пучками\n ионов тяжелых\n   элементов:\nС, Кr, Ar,\n      Xe, Bi, Au.", 20, 285, FONT_SIZE_24, 0xFFFF, 0x4BC6);
   SGUI_printString("Разработан в Дубне\n    создатель:\n проф. Е.Д. Донец", 20, 500, FONT_SIZE_24, 0xFFFF, 0x0000);
   SGUI_createButton(P1_B_BACK_TO_START_P,
                     P1_B_BACK_TO_START_X0,
@@ -281,23 +285,6 @@ static void page_1_init(void)
                     P1_B_BACK_TO_START_STATE,
                     P1_B_BACK_TO_START_DELAY,
                     P1_B_BACK_TO_START_ACT);
-  SGUI_createButton(P1_B_CLEAR_P,
-                    P1_B_CLEAR_X0,
-                    P1_B_CLEAR_Y0,
-                    P1_B_CLEAR_X1,
-                    P1_B_CLEAR_Y1,
-                    P1_B_CLEAR_RX,
-                    P1_B_CLEAR_RY,
-                    P1_B_CLEAR_FW,
-                    P1_B_CLEAR_BC,
-                    P1_B_CLEAR_FC,
-                    P1_B_CLEAR_T,
-                    P1_B_CLEAR_TC,
-                    P1_B_CLEAR_TMX,
-                    P1_B_CLEAR_TMY,
-                    P1_B_CLEAR_STATE,
-                    P1_B_CLEAR_DELAY,
-                    P1_B_CLEAR_ACT);
   SGUI_createButton(P1_B_NEXT_P,
                     P1_B_NEXT_X0,
                     P1_B_NEXT_Y0,
@@ -325,6 +312,7 @@ static void page_1_init(void)
                      P1_PIC_IONS_SOURCE_RY,
                      P1_PIC_IONS_SOURCE_FW,
                      P1_PIC_IONS_SOURCE_FC);
+  game_ions_init();
   SGUI_drawPage(1);
 }
 
@@ -337,6 +325,7 @@ static void btn_p2Clear(void)
 static void btn_p2Next(void)
 {
   SGUI_showPage(3);
+  SGUI_idle(DELAY_BETWEEN_PAGES);
 }
 
 
@@ -346,13 +335,13 @@ static void page_2_init(void)
   SGUI_setPage(2);
   SGUI_clearPage(White);
   SGUI_drawFilledFrame(270, 0, 275, 599, 0, 0, 0, 0, 0x6BA4);
-  SGUI_printString("Ускорение пучка заряженных частиц", 285, 20, FONT_SIZE_48, 0xFFFF, 0x4BC6);
+  SGUI_printString("Ускорение пучка заряженных частиц", 380, 20, FONT_SIZE_32, 0xFFFF, 0x4BC6);
   SGUI_printString("1. Включи питание ускорителя\n2. Запусти ускорительные станции\n3. Проведи пучок через ускоритель", 420, 75, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("Линейный ускоритель тяжелых ионов", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("Ускоряет пучки ионов тяжелых элементов до промежуточных энергий ~5 МегаЭлектронвольт.", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("1 МэВ = 1.6E-19 Дж.", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("Является частью комплекса NICA", 20, 130, FONT_SIZE_24, 0xFFFF, 0x0000);
-  SGUI_printString("подключите станции к системе питания", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Линейный ускоритель\n   тяжелых ионов", 20, 145, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("  Ускоряет пучки\n  ионов тяжелых\n   элементов до\n  промежуточных\n    энергий ~5\nМегаЭлектронвольт.", 20, 230, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("1 МэВ = 1.6E-19 Дж.", 20, 435, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString(" Является частью\n комплекса NICA", 20, 500, FONT_SIZE_24, 0xFFFF, 0x0000);
+  SGUI_printString("подключите станции\n к системе питания", 605, 520, FONT_SIZE_24, 0xFFFF, 0x4BC6);
   SGUI_createButton(P2_B_BACK_TO_START_P,
                     P2_B_BACK_TO_START_X0,
                     P2_B_BACK_TO_START_Y0,
@@ -414,6 +403,7 @@ static void page_2_init(void)
                      P2_PIC_LINEAR_BOOSTER_RY,
                      P2_PIC_LINEAR_BOOSTER_FW,
                      P2_PIC_LINEAR_BOOSTER_FC);
+  game_LinAccel_init();
   SGUI_drawPage(2);
 }
 
@@ -426,6 +416,7 @@ static void btn_p3Clear(void)
 static void btn_p3Next(void)
 {
   SGUI_showPage(4);
+  SGUI_idle(DELAY_BETWEEN_PAGES);
 }
 
 
@@ -435,12 +426,12 @@ static void page_3_init(void)
   SGUI_setPage(3);
   SGUI_clearPage(White);
   SGUI_drawFilledFrame(270, 0, 275, 599, 0, 0, 0, 0, 0x6BA4);
-  SGUI_printString("Ускорение пучка заряженных частиц", 285, 20, FONT_SIZE_48, 0xFFFF, 0x4BC6);
-  SGUI_printString("1. Включи питание ускорителя\n2. Запусти ускорительные станции и проведи пучок через станции", 420, 75, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("Циклический ускоритель Бустерный синхротрон", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("Накапливает и ускоряет пучки ионов тяжелых элементов до энергий ~600 МегаЭлектронвольт.", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("1 МэВ = 1.6E-19 Дж.", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("Является частью комплекса NICA", 20, 130, FONT_SIZE_24, 0xFFFF, 0x0000);
+  SGUI_printString("Ускорение пучка заряженных частиц", 380, 20, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+  SGUI_printString("1. Включи питание ускорителя\n2. Запусти ускорительные станции\n    и проведи пучок через станции", 420, 75, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("  Циклический\n    ускоритель\nБустерный синхротрон", 20, 145, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString(" Накапливает и\n ускоряет пучки\n ионов тяжелых\n элементов до\n энергий ~600\n МегаЭлектронвольт.", 20, 235, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("1 МэВ = 1.6E-19 Дж.", 20, 435, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString(" Является частью\n  комплекса NICA", 20, 500, FONT_SIZE_24, 0xFFFF, 0x0000);
   SGUI_createButton(P3_B_BACK_TO_START_P,
                     P3_B_BACK_TO_START_X0,
                     P3_B_BACK_TO_START_Y0,
@@ -523,11 +514,11 @@ static void page_4_init(void)
   SGUI_setPage(4);
   SGUI_clearPage(White);
   SGUI_drawFilledFrame(270, 0, 275, 599, 0, 0, 0, 0, 0x6BA4);
-  SGUI_printString("Детектор элементарных частиц", 285, 20, FONT_SIZE_48, 0xFFFF, 0x4BC6);
+  SGUI_printString("Детектор элементарных частиц", 400, 20, FONT_SIZE_32, 0xFFFF, 0x4BC6);
   SGUI_printString("1. Подготовь (закрась) фигуры с веществом\n2. Проведи пучок через вещество", 420, 75, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("Детектор BM@N", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("Эксперимент BM@N является нулевой фазой мега-сайенс проекта NICA (Nuclotron-based Ion Collider fAcility) - первым работающим экспериментом на фиксированной мишени", 20, 130, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("Является частью комплекса NICA", 20, 130, FONT_SIZE_24, 0xFFFF, 0x0000);
+  SGUI_printString("  Детектор BM@N", 20, 145, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Эксперимент BM@N\nявляется нулевой\nфазой мега-сайенс\nпроекта NICA\n(Nuclotron-based Ion\nCollider fAcility) -\nпервым работающим\nэкспериментом на\nфиксированной мишени", 20, 220, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString(" Является частью\n комплекса NICA", 20, 500, FONT_SIZE_24, 0xFFFF, 0x0000);
   SGUI_createButton(P4_B_BACK_TO_START_P,
                     P4_B_BACK_TO_START_X0,
                     P4_B_BACK_TO_START_Y0,

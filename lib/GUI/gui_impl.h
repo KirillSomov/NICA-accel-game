@@ -6,6 +6,9 @@
 #include "SGUI.h"
 
 
+#define DELAY_BETWEEN_PAGES 100
+
+
 #define P0_L_HEADER_P
 #define P0_L_HEADER_X0
 #define P0_L_HEADER_Y0
@@ -25,8 +28,8 @@
 #define P0_B_START_Y0 24
 #define P0_B_START_X1 P0_B_START_X0+340 
 #define P0_B_START_Y1 P0_B_START_Y0+87
-#define P0_B_START_RX 4
-#define P0_B_START_RY 4
+#define P0_B_START_RX 10
+#define P0_B_START_RY 10
 #define P0_B_START_FW 2
 #define P0_B_START_BC 0x4BC6
 #define P0_B_START_FC 0x21E2
@@ -177,16 +180,14 @@
 #define P0_PIC_NICA_FC 0
 
 
-
-
 // PAGE 1
 #define P1_B_BACK_TO_START_P 1
 #define P1_B_BACK_TO_START_X0 305
 #define P1_B_BACK_TO_START_Y0 510
 #define P1_B_BACK_TO_START_X1 P1_B_BACK_TO_START_X0+120
 #define P1_B_BACK_TO_START_Y1 P1_B_BACK_TO_START_Y0+70
-#define P1_B_BACK_TO_START_RX 4
-#define P1_B_BACK_TO_START_RY 4
+#define P1_B_BACK_TO_START_RX 10
+#define P1_B_BACK_TO_START_RY 10
 #define P1_B_BACK_TO_START_FW 2
 #define P1_B_BACK_TO_START_BC 0x4BC6
 #define P1_B_BACK_TO_START_FC 0x21E2
@@ -198,31 +199,13 @@
 #define P1_B_BACK_TO_START_DELAY 500
 #define P1_B_BACK_TO_START_ACT btn_backToStart
 
-#define P1_B_CLEAR_P 1
-#define P1_B_CLEAR_X0 435
-#define P1_B_CLEAR_Y0 510
-#define P1_B_CLEAR_X1 P1_B_CLEAR_X0+120
-#define P1_B_CLEAR_Y1 P1_B_CLEAR_Y0+70
-#define P1_B_CLEAR_RX 4
-#define P1_B_CLEAR_RY 4
-#define P1_B_CLEAR_FW 2
-#define P1_B_CLEAR_BC 0xFFFF
-#define P1_B_CLEAR_FC 0x3823
-#define P1_B_CLEAR_T 0
-#define P1_B_CLEAR_TC 0
-#define P1_B_CLEAR_TMX 0
-#define P1_B_CLEAR_TMY 0
-#define P1_B_CLEAR_STATE 0
-#define P1_B_CLEAR_DELAY 500
-#define P1_B_CLEAR_ACT btn_p1Clear
-
 #define P1_B_NEXT_P 1
 #define P1_B_NEXT_X0 869
 #define P1_B_NEXT_Y0 510
 #define P1_B_NEXT_X1 P1_B_NEXT_X0+120
 #define P1_B_NEXT_Y1 P1_B_NEXT_Y0+70
-#define P1_B_NEXT_RX 4
-#define P1_B_NEXT_RY 4
+#define P1_B_NEXT_RX 10
+#define P1_B_NEXT_RY 10
 #define P1_B_NEXT_FW 2
 #define P1_B_NEXT_BC 0x4BC6
 #define P1_B_NEXT_FC 0x21E2
@@ -252,8 +235,8 @@
 #define P2_B_BACK_TO_START_Y0 510
 #define P2_B_BACK_TO_START_X1 P2_B_BACK_TO_START_X0+120
 #define P2_B_BACK_TO_START_Y1 P2_B_BACK_TO_START_Y0+70
-#define P2_B_BACK_TO_START_RX 4
-#define P2_B_BACK_TO_START_RY 4
+#define P2_B_BACK_TO_START_RX 10
+#define P2_B_BACK_TO_START_RY 10
 #define P2_B_BACK_TO_START_FW 2
 #define P2_B_BACK_TO_START_BC 0x4BC6
 #define P2_B_BACK_TO_START_FC 0x21E2
@@ -270,8 +253,8 @@
 #define P2_B_CLEAR_Y0 510
 #define P2_B_CLEAR_X1 P2_B_CLEAR_X0+120
 #define P2_B_CLEAR_Y1 P2_B_CLEAR_Y0+70
-#define P2_B_CLEAR_RX 4
-#define P2_B_CLEAR_RY 4
+#define P2_B_CLEAR_RX 10
+#define P2_B_CLEAR_RY 10
 #define P2_B_CLEAR_FW 2
 #define P2_B_CLEAR_BC 0xFFFF
 #define P2_B_CLEAR_FC 0x3823
@@ -288,8 +271,8 @@
 #define P2_B_NEXT_Y0 510
 #define P2_B_NEXT_X1 P2_B_NEXT_X0+120
 #define P2_B_NEXT_Y1 P2_B_NEXT_Y0+70
-#define P2_B_NEXT_RX 4
-#define P2_B_NEXT_RY 4
+#define P2_B_NEXT_RX 10
+#define P2_B_NEXT_RY 10
 #define P2_B_NEXT_FW 2
 #define P2_B_NEXT_BC 0x4BC6
 #define P2_B_NEXT_FC 0x21E2
@@ -319,8 +302,8 @@
 #define P3_B_BACK_TO_START_Y0 510
 #define P3_B_BACK_TO_START_X1 P3_B_BACK_TO_START_X0+120
 #define P3_B_BACK_TO_START_Y1 P3_B_BACK_TO_START_Y0+70
-#define P3_B_BACK_TO_START_RX 4
-#define P3_B_BACK_TO_START_RY 4
+#define P3_B_BACK_TO_START_RX 10
+#define P3_B_BACK_TO_START_RY 10
 #define P3_B_BACK_TO_START_FW 2
 #define P3_B_BACK_TO_START_BC 0x4BC6
 #define P3_B_BACK_TO_START_FC 0x21E2
@@ -337,8 +320,8 @@
 #define P3_B_CLEAR_Y0 150
 #define P3_B_CLEAR_X1 P3_B_CLEAR_X0+120
 #define P3_B_CLEAR_Y1 P3_B_CLEAR_Y0+70
-#define P3_B_CLEAR_RX 4
-#define P3_B_CLEAR_RY 4
+#define P3_B_CLEAR_RX 10
+#define P3_B_CLEAR_RY 10
 #define P3_B_CLEAR_FW 2
 #define P3_B_CLEAR_BC 0xFFFF
 #define P3_B_CLEAR_FC 0x3823
@@ -355,8 +338,8 @@
 #define P3_B_NEXT_Y0 510
 #define P3_B_NEXT_X1 P3_B_NEXT_X0+120
 #define P3_B_NEXT_Y1 P3_B_NEXT_Y0+70
-#define P3_B_NEXT_RX 4
-#define P3_B_NEXT_RY 4
+#define P3_B_NEXT_RX 10
+#define P3_B_NEXT_RY 10
 #define P3_B_NEXT_FW 2
 #define P3_B_NEXT_BC 0x4BC6
 #define P3_B_NEXT_FC 0x21E2
@@ -386,8 +369,8 @@
 #define P4_B_BACK_TO_START_Y0 510
 #define P4_B_BACK_TO_START_X1 P4_B_BACK_TO_START_X0+120
 #define P4_B_BACK_TO_START_Y1 P4_B_BACK_TO_START_Y0+70
-#define P4_B_BACK_TO_START_RX 4
-#define P4_B_BACK_TO_START_RY 4
+#define P4_B_BACK_TO_START_RX 10
+#define P4_B_BACK_TO_START_RY 10
 #define P4_B_BACK_TO_START_FW 2
 #define P4_B_BACK_TO_START_BC 0x4BC6
 #define P4_B_BACK_TO_START_FC 0x21E2
@@ -404,8 +387,8 @@
 #define P4_B_CLEAR_Y0 510
 #define P4_B_CLEAR_X1 P4_B_CLEAR_X0+120
 #define P4_B_CLEAR_Y1 P4_B_CLEAR_Y0+70
-#define P4_B_CLEAR_RX 4
-#define P4_B_CLEAR_RY 4
+#define P4_B_CLEAR_RX 10
+#define P4_B_CLEAR_RY 10
 #define P4_B_CLEAR_FW 2
 #define P4_B_CLEAR_BC 0xFFFF
 #define P4_B_CLEAR_FC 0x3823
@@ -422,8 +405,8 @@
 #define P4_B_NEXT_Y0 510
 #define P4_B_NEXT_X1 P4_B_NEXT_X0+120
 #define P4_B_NEXT_Y1 P4_B_NEXT_Y0+70
-#define P4_B_NEXT_RX 4
-#define P4_B_NEXT_RY 4
+#define P4_B_NEXT_RX 10
+#define P4_B_NEXT_RY 10
 #define P4_B_NEXT_FW 2
 #define P4_B_NEXT_BC 0x4BC6
 #define P4_B_NEXT_FC 0x21E2

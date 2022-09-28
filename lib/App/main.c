@@ -13,7 +13,7 @@ int main(void)
 {
   CPU_init();
   GPIO_setup();
-  TIM6_DAC_init();
+  TIM10_init();
   SPIxInit(SPI3, 0, 0); //~13 MHz
   I2C1_init();
   //EXTI_init();
