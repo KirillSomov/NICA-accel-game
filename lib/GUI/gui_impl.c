@@ -317,11 +317,6 @@ static void page_1_init(void)
 }
 
 
-static void btn_p2Clear(void)
-{
-  ;
-}
-
 static void btn_p2Next(void)
 {
   SGUI_showPage(3);
@@ -359,23 +354,6 @@ static void page_2_init(void)
                     P2_B_BACK_TO_START_STATE,
                     P2_B_BACK_TO_START_DELAY,
                     P2_B_BACK_TO_START_ACT);
-  SGUI_createButton(P2_B_CLEAR_P,
-                    P2_B_CLEAR_X0,
-                    P2_B_CLEAR_Y0,
-                    P2_B_CLEAR_X1,
-                    P2_B_CLEAR_Y1,
-                    P2_B_CLEAR_RX,
-                    P2_B_CLEAR_RY,
-                    P2_B_CLEAR_FW,
-                    P2_B_CLEAR_BC,
-                    P2_B_CLEAR_FC,
-                    P2_B_CLEAR_T,
-                    P2_B_CLEAR_TC,
-                    P2_B_CLEAR_TMX,
-                    P2_B_CLEAR_TMY,
-                    P2_B_CLEAR_STATE,
-                    P2_B_CLEAR_DELAY,
-                    P2_B_CLEAR_ACT);
   SGUI_createButton(P2_B_NEXT_P,
                     P2_B_NEXT_X0,
                     P2_B_NEXT_Y0,
@@ -403,15 +381,11 @@ static void page_2_init(void)
                      P2_PIC_LINEAR_BOOSTER_RY,
                      P2_PIC_LINEAR_BOOSTER_FW,
                      P2_PIC_LINEAR_BOOSTER_FC);
-  game_LinAccel_init();
+  game_linAccel_init();
+  SGUI_pageSetActionFunc(2, game_linAccel_handler);
   SGUI_drawPage(2);
 }
 
-
-static void btn_p3Clear(void)
-{
-  ;
-}
 
 static void btn_p3Next(void)
 {
@@ -449,23 +423,6 @@ static void page_3_init(void)
                     P3_B_BACK_TO_START_STATE,
                     P3_B_BACK_TO_START_DELAY,
                     P3_B_BACK_TO_START_ACT);
-  SGUI_createButton(P3_B_CLEAR_P,
-                    P3_B_CLEAR_X0,
-                    P3_B_CLEAR_Y0,
-                    P3_B_CLEAR_X1,
-                    P3_B_CLEAR_Y1,
-                    P3_B_CLEAR_RX,
-                    P3_B_CLEAR_RY,
-                    P3_B_CLEAR_FW,
-                    P3_B_CLEAR_BC,
-                    P3_B_CLEAR_FC,
-                    P3_B_CLEAR_T,
-                    P3_B_CLEAR_TC,
-                    P3_B_CLEAR_TMX,
-                    P3_B_CLEAR_TMY,
-                    P3_B_CLEAR_STATE,
-                    P3_B_CLEAR_DELAY,
-                    P3_B_CLEAR_ACT);
   SGUI_createButton(P3_B_NEXT_P,
                     P3_B_NEXT_X0,
                     P3_B_NEXT_Y0,

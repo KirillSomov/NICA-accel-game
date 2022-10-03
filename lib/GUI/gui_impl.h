@@ -6,7 +6,7 @@
 #include "SGUI.h"
 
 
-#define DELAY_BETWEEN_PAGES 100
+#define DELAY_BETWEEN_PAGES 50
 
 
 #define P0_L_HEADER_P
@@ -37,7 +37,7 @@
 #define P0_B_START_TC 0
 #define P0_B_START_TMX 0
 #define P0_B_START_TMY 0
-#define P0_B_START_STATE 0
+#define P0_B_START_STATE 1
 #define P0_B_START_DELAY 500
 #define P0_B_START_ACT btn_start
 
@@ -66,7 +66,7 @@
 #define P0_B_IONS_SOURCE_TC 0
 #define P0_B_IONS_SOURCE_TMX 0
 #define P0_B_IONS_SOURCE_TMY 0
-#define P0_B_IONS_SOURCE_STATE 0
+#define P0_B_IONS_SOURCE_STATE 1
 #define P0_B_IONS_SOURCE_DELAY 500
 #define P0_B_IONS_SOURCE_ACT btn_picIonsSource
 
@@ -95,7 +95,7 @@
 #define P0_B_LINEAR_BOOSTER_TC 0
 #define P0_B_LINEAR_BOOSTER_TMX 0
 #define P0_B_LINEAR_BOOSTER_TMY 0
-#define P0_B_LINEAR_BOOSTER_STATE 0
+#define P0_B_LINEAR_BOOSTER_STATE 1
 #define P0_B_LINEAR_BOOSTER_DELAY 500
 #define P0_B_LINEAR_BOOSTER_ACT btn_picLinearBooster
 
@@ -124,7 +124,7 @@
 #define P0_B_CIRCLE_BOOSTER_TC 0
 #define P0_B_CIRCLE_BOOSTER_TMX 0
 #define P0_B_CIRCLE_BOOSTER_TMY 0
-#define P0_B_CIRCLE_BOOSTER_STATE 0
+#define P0_B_CIRCLE_BOOSTER_STATE 1
 #define P0_B_CIRCLE_BOOSTER_DELAY 500
 #define P0_B_CIRCLE_BOOSTER_ACT btn_picCircleBooster
 
@@ -153,7 +153,7 @@
 #define P0_B_DETECTOR_TC 0
 #define P0_B_DETECTOR_TMX 0
 #define P0_B_DETECTOR_TMY 0
-#define P0_B_DETECTOR_STATE 0
+#define P0_B_DETECTOR_STATE 1
 #define P0_B_DETECTOR_DELAY 500
 #define P0_B_DETECTOR_ACT btn_picDetector
 
@@ -195,7 +195,7 @@
 #define P1_B_BACK_TO_START_TC 0
 #define P1_B_BACK_TO_START_TMX 0
 #define P1_B_BACK_TO_START_TMY 0
-#define P1_B_BACK_TO_START_STATE 0
+#define P1_B_BACK_TO_START_STATE 1
 #define P1_B_BACK_TO_START_DELAY 500
 #define P1_B_BACK_TO_START_ACT btn_backToStart
 
@@ -213,7 +213,7 @@
 #define P1_B_NEXT_TC 0
 #define P1_B_NEXT_TMX 0
 #define P1_B_NEXT_TMY 0
-#define P1_B_NEXT_STATE 0
+#define P1_B_NEXT_STATE 1
 #define P1_B_NEXT_DELAY 500
 #define P1_B_NEXT_ACT btn_p1Next
 
@@ -244,27 +244,9 @@
 #define P2_B_BACK_TO_START_TC 0
 #define P2_B_BACK_TO_START_TMX 0
 #define P2_B_BACK_TO_START_TMY 0
-#define P2_B_BACK_TO_START_STATE 0
+#define P2_B_BACK_TO_START_STATE 1
 #define P2_B_BACK_TO_START_DELAY 500
 #define P2_B_BACK_TO_START_ACT btn_backToStart
-
-#define P2_B_CLEAR_P 2
-#define P2_B_CLEAR_X0 435
-#define P2_B_CLEAR_Y0 510
-#define P2_B_CLEAR_X1 P2_B_CLEAR_X0+120
-#define P2_B_CLEAR_Y1 P2_B_CLEAR_Y0+70
-#define P2_B_CLEAR_RX 10
-#define P2_B_CLEAR_RY 10
-#define P2_B_CLEAR_FW 2
-#define P2_B_CLEAR_BC 0xFFFF
-#define P2_B_CLEAR_FC 0x3823
-#define P2_B_CLEAR_T 0
-#define P2_B_CLEAR_TC 0
-#define P2_B_CLEAR_TMX 0
-#define P2_B_CLEAR_TMY 0
-#define P2_B_CLEAR_STATE 0
-#define P2_B_CLEAR_DELAY 500
-#define P2_B_CLEAR_ACT btn_p2Clear
 
 #define P2_B_NEXT_P 2
 #define P2_B_NEXT_X0 869
@@ -280,7 +262,7 @@
 #define P2_B_NEXT_TC 0
 #define P2_B_NEXT_TMX 0
 #define P2_B_NEXT_TMY 0
-#define P2_B_NEXT_STATE 0
+#define P2_B_NEXT_STATE 1
 #define P2_B_NEXT_DELAY 500
 #define P2_B_NEXT_ACT btn_p2Next
 
@@ -311,27 +293,9 @@
 #define P3_B_BACK_TO_START_TC 0
 #define P3_B_BACK_TO_START_TMX 0
 #define P3_B_BACK_TO_START_TMY 0
-#define P3_B_BACK_TO_START_STATE 0
+#define P3_B_BACK_TO_START_STATE 1
 #define P3_B_BACK_TO_START_DELAY 500
 #define P3_B_BACK_TO_START_ACT btn_backToStart
-
-#define P3_B_CLEAR_P 3
-#define P3_B_CLEAR_X0 869
-#define P3_B_CLEAR_Y0 150
-#define P3_B_CLEAR_X1 P3_B_CLEAR_X0+120
-#define P3_B_CLEAR_Y1 P3_B_CLEAR_Y0+70
-#define P3_B_CLEAR_RX 10
-#define P3_B_CLEAR_RY 10
-#define P3_B_CLEAR_FW 2
-#define P3_B_CLEAR_BC 0xFFFF
-#define P3_B_CLEAR_FC 0x3823
-#define P3_B_CLEAR_T 0
-#define P3_B_CLEAR_TC 0
-#define P3_B_CLEAR_TMX 0
-#define P3_B_CLEAR_TMY 0
-#define P3_B_CLEAR_STATE 0
-#define P3_B_CLEAR_DELAY 500
-#define P3_B_CLEAR_ACT btn_p3Clear
 
 #define P3_B_NEXT_P 3
 #define P3_B_NEXT_X0 869
@@ -347,7 +311,7 @@
 #define P3_B_NEXT_TC 0
 #define P3_B_NEXT_TMX 0
 #define P3_B_NEXT_TMY 0
-#define P3_B_NEXT_STATE 0
+#define P3_B_NEXT_STATE 1
 #define P3_B_NEXT_DELAY 500
 #define P3_B_NEXT_ACT btn_p3Next
 
@@ -378,7 +342,7 @@
 #define P4_B_BACK_TO_START_TC 0
 #define P4_B_BACK_TO_START_TMX 0
 #define P4_B_BACK_TO_START_TMY 0
-#define P4_B_BACK_TO_START_STATE 0
+#define P4_B_BACK_TO_START_STATE 1
 #define P4_B_BACK_TO_START_DELAY 500
 #define P4_B_BACK_TO_START_ACT btn_backToStart
 
@@ -396,7 +360,7 @@
 #define P4_B_CLEAR_TC 0
 #define P4_B_CLEAR_TMX 0
 #define P4_B_CLEAR_TMY 0
-#define P4_B_CLEAR_STATE 0
+#define P4_B_CLEAR_STATE 1
 #define P4_B_CLEAR_DELAY 500
 #define P4_B_CLEAR_ACT btn_p4Clear
 
@@ -414,7 +378,7 @@
 #define P4_B_NEXT_TC 0
 #define P4_B_NEXT_TMX 0
 #define P4_B_NEXT_TMY 0
-#define P4_B_NEXT_STATE 0
+#define P4_B_NEXT_STATE 1
 #define P4_B_NEXT_DELAY 500
 #define P4_B_NEXT_ACT btn_p4Next
 

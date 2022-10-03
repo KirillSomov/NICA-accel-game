@@ -494,6 +494,16 @@
               <FileType>5</FileType>
               <FilePath>.\lib\GUI\game_ions.h</FilePath>
             </File>
+            <File>
+              <FileName>swipe.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\GUI\swipe.c</FilePath>
+            </File>
+            <File>
+              <FileName>swipe.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\lib\GUI\swipe.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
