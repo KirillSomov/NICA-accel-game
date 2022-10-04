@@ -5,6 +5,17 @@
 static struct swipe swipeData = {0};
 
 
+static inline unsigned short swipeDtX(void)
+{
+  return (unsigned short)((swipeData.swipeArea.x1 - swipeData.swipeArea.x0) / 2);
+}
+
+static inline unsigned short swipeDtY(void)
+{
+  return (unsigned short)((swipeData.swipeArea.y1 - swipeData.swipeArea.y0) / 2);
+}
+
+
 void useSwipe(bool state)
 {
   swipeData.state = state;
@@ -56,7 +67,7 @@ bool isSwipe(void)
       }
       if((swipeData.newTouch.y >= swipeData.swipeArea.y1)
           &&((swipeData.prevTouch.touch == true) && (swipeData.prevTouch.y <= swipeData.swipeArea.y1))
-          &&((swipeData.firstTouch.y > swipeData.swipeArea.y0) && (swipeData.firstTouch.y <= swipeData.swipeArea.y0+20)))
+          &&((swipeData.firstTouch.y > swipeData.swipeArea.y0) && (swipeData.firstTouch.y <= swipeData.swipeArea.y0+swipeDtY())))
       {
         swipeData.prevTouch.touch = false;
         swipeData.prevTouch.y = swipeData.swipeArea.y0;
@@ -64,6 +75,44 @@ bool isSwipe(void)
         return true;
       }
       if(swipeData.firstTouch.y == swipeData.swipeArea.y0)
+      {
+        swipeData.firstTouch.y = swipeData.newTouch.y;
+      }
+      swipeData.prevTouch = swipeData.newTouch;
+      break;
+
+    case SWIPE_UP:
+      if(swipeData.newTouch.touch == false)
+      {
+        swipeData.prevTouch.touch = false;
+        swipeData.prevTouch.y = swipeData.swipeArea.y1;
+        swipeData.firstTouch.y = swipeData.swipeArea.y1;
+        return false;        
+      }
+      if((swipeData.newTouch.x < swipeData.swipeArea.x0) || (swipeData.newTouch.x > swipeData.swipeArea.x1))
+      {
+        swipeData.prevTouch.touch = false;
+        swipeData.prevTouch.y = swipeData.swipeArea.y1;
+        swipeData.firstTouch.y = swipeData.swipeArea.y1;
+        return false;
+      }
+      if((swipeData.newTouch.y > swipeData.swipeArea.y1) || (swipeData.newTouch.y > (swipeData.prevTouch.y + 10)))
+      {
+        swipeData.prevTouch.touch = false;
+        swipeData.prevTouch.y = swipeData.swipeArea.y1;
+        swipeData.firstTouch.y = swipeData.swipeArea.y1;
+        return false;
+      }
+      if((swipeData.newTouch.y <= swipeData.swipeArea.y0)
+          &&((swipeData.prevTouch.touch == true) && (swipeData.prevTouch.y >= swipeData.swipeArea.y0))
+          &&((swipeData.firstTouch.y < swipeData.swipeArea.y1) && (swipeData.firstTouch.y >= swipeData.swipeArea.y1-swipeDtY())))
+      {
+        swipeData.prevTouch.touch = false;
+        swipeData.prevTouch.y = swipeData.swipeArea.y1;
+        swipeData.firstTouch.y = swipeData.swipeArea.y1;
+        return true;
+      }
+      if(swipeData.firstTouch.y == swipeData.swipeArea.y1)
       {
         swipeData.firstTouch.y = swipeData.newTouch.y;
       }
@@ -94,7 +143,7 @@ bool isSwipe(void)
       }
       if((swipeData.newTouch.x >= swipeData.swipeArea.x1)
           &&((swipeData.prevTouch.touch == true) && (swipeData.prevTouch.x <= swipeData.swipeArea.x1))
-          &&((swipeData.firstTouch.x > swipeData.swipeArea.x0) && (swipeData.firstTouch.x <= swipeData.swipeArea.x0+20)))
+          &&((swipeData.firstTouch.x > swipeData.swipeArea.x0) && (swipeData.firstTouch.x <= swipeData.swipeArea.x0+swipeDtX())))
       {
         swipeData.prevTouch.touch = false;
         swipeData.prevTouch.x = swipeData.swipeArea.x0;
@@ -102,6 +151,44 @@ bool isSwipe(void)
         return true;
       }
       if(swipeData.firstTouch.x == swipeData.swipeArea.x0)
+      {
+        swipeData.firstTouch.x = swipeData.newTouch.x;
+      }
+      swipeData.prevTouch = swipeData.newTouch;
+      break;
+
+    case SWIPE_LEFT:
+      if(swipeData.newTouch.touch == false)
+      {
+        swipeData.prevTouch.touch = false;
+        swipeData.prevTouch.x = swipeData.swipeArea.x1;
+        swipeData.firstTouch.x = swipeData.swipeArea.x1;
+        return false;        
+      }
+      if((swipeData.newTouch.y < swipeData.swipeArea.y0) || (swipeData.newTouch.y > swipeData.swipeArea.y1))
+      {
+        swipeData.prevTouch.touch = false;
+        swipeData.prevTouch.x = swipeData.swipeArea.x1;
+        swipeData.firstTouch.x = swipeData.swipeArea.x1;
+        return false;
+      }
+      if((swipeData.newTouch.x > swipeData.swipeArea.x1) || (swipeData.newTouch.x > (swipeData.prevTouch.x + 10)))
+      {
+        swipeData.prevTouch.touch = false;
+        swipeData.prevTouch.x = swipeData.swipeArea.x1;
+        swipeData.firstTouch.x = swipeData.swipeArea.x1;
+        return false;
+      }
+      if((swipeData.newTouch.x <= swipeData.swipeArea.x0)
+          &&((swipeData.prevTouch.touch == true) && (swipeData.prevTouch.x >= swipeData.swipeArea.x0))
+          &&((swipeData.firstTouch.x < swipeData.swipeArea.x1) && (swipeData.firstTouch.x >= swipeData.swipeArea.x1-swipeDtX())))
+      {
+        swipeData.prevTouch.touch = false;
+        swipeData.prevTouch.x = swipeData.swipeArea.x1;
+        swipeData.firstTouch.x = swipeData.swipeArea.x1;
+        return true;
+      }
+      if(swipeData.firstTouch.x == swipeData.swipeArea.x1)
       {
         swipeData.firstTouch.x = swipeData.newTouch.x;
       }

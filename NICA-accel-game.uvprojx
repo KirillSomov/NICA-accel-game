@@ -504,6 +504,16 @@
               <FileType>5</FileType>
               <FilePath>.\lib\GUI\swipe.h</FilePath>
             </File>
+            <File>
+              <FileName>game_circAccel.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\GUI\game_circAccel.c</FilePath>
+            </File>
+            <File>
+              <FileName>game_circAccel.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\lib\GUI\game_circAccel.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

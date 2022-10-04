@@ -34,11 +34,13 @@ static void btn_linAccelPower(void)
            GAME_LIN_ACCEL_SWIPE_PORTAL_1_X1,
            GAME_LIN_ACCEL_SWIPE_PORTAL_1_Y1,
            GAME_LIN_ACCEL_SWIPE_PORTAL_1_DIRECTION);
+#ifdef GAME_LIN_ACCEL_DEBUG
   SGUI_drawFrame(GAME_LIN_ACCEL_SWIPE_PORTAL_1_X0,
                  GAME_LIN_ACCEL_SWIPE_PORTAL_1_Y0,
                  GAME_LIN_ACCEL_SWIPE_PORTAL_1_X1,
                  GAME_LIN_ACCEL_SWIPE_PORTAL_1_Y1,
                  0, 0, 1, 0x0000);
+#endif                 
   useSwipe(true);
   gameLevel = PORTAL_1;
 }
@@ -70,9 +72,9 @@ static void btn_clear(void)
                        GAME_LIN_ACCEL_POWER_OFF_COLOR);
   for(int i = 0; i < 6; i++)
   {
-    SGUI_drawFilledFrame(GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X0 + i*115 + 1,
+    SGUI_drawFilledFrame(GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X0 + i*115,
                         GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y0,
-                        GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X0 + i*115 + 34,
+                        GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X0 + i*115 + 33,
                         GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y1,
                         0, 0, 0, 0,
                         0xFFFF);
@@ -308,11 +310,13 @@ void game_linAccel_handler(void)
                  GAME_LIN_ACCEL_SWIPE_PORTAL_2_X1,
                  GAME_LIN_ACCEL_SWIPE_PORTAL_2_Y1,
                  GAME_LIN_ACCEL_SWIPE_PORTAL_2_DIRECTION);
+#ifdef GAME_LIN_ACCEL_DEBUG
         SGUI_drawFrame(GAME_LIN_ACCEL_SWIPE_PORTAL_2_X0,
                        GAME_LIN_ACCEL_SWIPE_PORTAL_2_Y0,
                        GAME_LIN_ACCEL_SWIPE_PORTAL_2_X1,
                        GAME_LIN_ACCEL_SWIPE_PORTAL_2_Y1,
                        0, 0, 1, 0x0000);
+#endif
         gameLevel = PORTAL_2;
         break;
 
@@ -336,11 +340,13 @@ void game_linAccel_handler(void)
                  GAME_LIN_ACCEL_SWIPE_PORTAL_3_X1,
                  GAME_LIN_ACCEL_SWIPE_PORTAL_3_Y1,
                  GAME_LIN_ACCEL_SWIPE_PORTAL_3_DIRECTION);
+#ifdef GAME_LIN_ACCEL_DEBUG
         SGUI_drawFrame(GAME_LIN_ACCEL_SWIPE_PORTAL_3_X0,
                        GAME_LIN_ACCEL_SWIPE_PORTAL_3_Y0,
                        GAME_LIN_ACCEL_SWIPE_PORTAL_3_X1,
                        GAME_LIN_ACCEL_SWIPE_PORTAL_3_Y1,
                        0, 0, 1, 0x0000);
+#endif
         gameLevel = PORTAL_3;
         break;
 
@@ -364,11 +370,13 @@ void game_linAccel_handler(void)
                  GAME_LIN_ACCEL_SWIPE_PORTAL_4_X1,
                  GAME_LIN_ACCEL_SWIPE_PORTAL_4_Y1,
                  GAME_LIN_ACCEL_SWIPE_PORTAL_4_DIRECTION);
+#ifdef GAME_LIN_ACCEL_DEBUG
         SGUI_drawFrame(GAME_LIN_ACCEL_SWIPE_PORTAL_4_X0,
                        GAME_LIN_ACCEL_SWIPE_PORTAL_4_Y0,
                        GAME_LIN_ACCEL_SWIPE_PORTAL_4_X1,
                        GAME_LIN_ACCEL_SWIPE_PORTAL_4_Y1,
                        0, 0, 1, 0x0000);
+#endif
         gameLevel = PORTAL_4;
         break;
 
@@ -392,11 +400,13 @@ void game_linAccel_handler(void)
                  GAME_LIN_ACCEL_SWIPE_PORTAL_5_X1,
                  GAME_LIN_ACCEL_SWIPE_PORTAL_5_Y1,
                  GAME_LIN_ACCEL_SWIPE_PORTAL_5_DIRECTION);
+#ifdef GAME_LIN_ACCEL_DEBUG
         SGUI_drawFrame(GAME_LIN_ACCEL_SWIPE_PORTAL_5_X0,
                        GAME_LIN_ACCEL_SWIPE_PORTAL_5_Y0,
                        GAME_LIN_ACCEL_SWIPE_PORTAL_5_X1,
                        GAME_LIN_ACCEL_SWIPE_PORTAL_5_Y1,
                        0, 0, 1, 0x0000);
+#endif
         gameLevel = PORTAL_5;
         break;
 
@@ -415,26 +425,194 @@ void game_linAccel_handler(void)
                              GAME_LIN_ACCEL_PORTAL_5_FW,
                              GAME_LIN_ACCEL_PORTAL_5_FC,
                              GAME_LIN_ACCEL_POWER_ON_COLOR);
-        for(int i = 0; i < 6; i++)
-        {
-          SGUI_drawFilledFrame(GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X0 + i*115 + 1,
-                              GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y0,
-                              GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X0 + i*115 + 34,
-                              GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y1,
-                              0, 0, 0, 0,
-                              GAME_LIN_ACCEL_SWIPE_LINE_BOOST_COLOR);
-        }
-        /*setSwipe(GAME_LIN_ACCEL_SWIPE_PORTAL_5_X0,
-                 GAME_LIN_ACCEL_SWIPE_PORTAL_5_Y0,
-                 GAME_LIN_ACCEL_SWIPE_PORTAL_5_X1,
-                 GAME_LIN_ACCEL_SWIPE_PORTAL_5_Y1,
-                 GAME_LIN_ACCEL_SWIPE_PORTAL_5_DIRECTION);
-        SGUI_drawFrame(GAME_LIN_ACCEL_SWIPE_PORTAL_5_X0,
-                       GAME_LIN_ACCEL_SWIPE_PORTAL_5_Y0,
-                       GAME_LIN_ACCEL_SWIPE_PORTAL_5_X1,
-                       GAME_LIN_ACCEL_SWIPE_PORTAL_5_Y1,
+        setSwipe(GAME_LIN_ACCEL_SWIPE_BOOST_X0,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_Y0,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_X1,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_Y1,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_DIRECTION);
+#ifdef GAME_LIN_ACCEL_DEBUG
+        SGUI_drawFrame(GAME_LIN_ACCEL_SWIPE_BOOST_X0,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_Y0,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_X1,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_Y1,
                        0, 0, 1, 0x0000);
-        gameLevel = PORTAL_5;*/
+#endif
+        gameLevel = BOOST_1;
+        break;
+
+      case BOOST_1:
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X0,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y0,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X1,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y1,
+                             0, 0, 0, 0,
+                             GAME_LIN_ACCEL_BOOST_COLOR);
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_PORTAL_1_X0,
+                             GAME_LIN_ACCEL_PORTAL_1_Y0,
+                             GAME_LIN_ACCEL_PORTAL_1_X1,
+                             GAME_LIN_ACCEL_PORTAL_1_Y1,
+                             GAME_LIN_ACCEL_PORTAL_1_RX,
+                             GAME_LIN_ACCEL_PORTAL_1_RY,
+                             GAME_LIN_ACCEL_PORTAL_1_FW,
+                             GAME_LIN_ACCEL_PORTAL_1_FC,
+                             GAME_LIN_ACCEL_BOOST_COLOR);
+        setSwipe(GAME_LIN_ACCEL_SWIPE_BOOST_X0 + 1*115,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_Y0,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_X1 + 1*115,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_Y1,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_DIRECTION);
+#ifdef GAME_LIN_ACCEL_DEBUG
+        SGUI_drawFrame(GAME_LIN_ACCEL_SWIPE_BOOST_X0 + 1*115,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_Y0,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_X1 + 1*115,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_Y1,
+                       0, 0, 1, 0x0000);
+#endif
+        gameLevel = BOOST_2;
+        break;
+
+      case BOOST_2:
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X0 + 1*115,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y0,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X1 + 1*115,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y1,
+                             0, 0, 0, 0,
+                             GAME_LIN_ACCEL_BOOST_COLOR);
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_PORTAL_2_X0,
+                             GAME_LIN_ACCEL_PORTAL_2_Y0,
+                             GAME_LIN_ACCEL_PORTAL_2_X1,
+                             GAME_LIN_ACCEL_PORTAL_2_Y1,
+                             GAME_LIN_ACCEL_PORTAL_2_RX,
+                             GAME_LIN_ACCEL_PORTAL_2_RY,
+                             GAME_LIN_ACCEL_PORTAL_2_FW,
+                             GAME_LIN_ACCEL_PORTAL_2_FC,
+                             GAME_LIN_ACCEL_BOOST_COLOR);
+        setSwipe(GAME_LIN_ACCEL_SWIPE_BOOST_X0 + 2*115,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_Y0,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_X1 + 2*115,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_Y1,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_DIRECTION);
+#ifdef GAME_LIN_ACCEL_DEBUG
+        SGUI_drawFrame(GAME_LIN_ACCEL_SWIPE_BOOST_X0 + 2*115,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_Y0,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_X1 + 2*115,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_Y1,
+                       0, 0, 1, 0x0000);
+#endif
+        gameLevel = BOOST_3;
+        break;
+
+      case BOOST_3:
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X0 + 2*115,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y0,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X1 + 2*115,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y1,
+                             0, 0, 0, 0,
+                             GAME_LIN_ACCEL_BOOST_COLOR);
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_PORTAL_3_X0,
+                             GAME_LIN_ACCEL_PORTAL_3_Y0,
+                             GAME_LIN_ACCEL_PORTAL_3_X1,
+                             GAME_LIN_ACCEL_PORTAL_3_Y1,
+                             GAME_LIN_ACCEL_PORTAL_3_RX,
+                             GAME_LIN_ACCEL_PORTAL_3_RY,
+                             GAME_LIN_ACCEL_PORTAL_3_FW,
+                             GAME_LIN_ACCEL_PORTAL_3_FC,
+                             GAME_LIN_ACCEL_BOOST_COLOR);
+        setSwipe(GAME_LIN_ACCEL_SWIPE_BOOST_X0 + 3*115,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_Y0,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_X1 + 3*115,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_Y1,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_DIRECTION);
+#ifdef GAME_LIN_ACCEL_DEBUG
+        SGUI_drawFrame(GAME_LIN_ACCEL_SWIPE_BOOST_X0 + 3*115,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_Y0,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_X1 + 3*115,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_Y1,
+                       0, 0, 1, 0x0000);
+#endif
+        gameLevel = BOOST_4;
+        break;
+
+      case BOOST_4:
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X0 + 3*115,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y0,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X1 + 3*115,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y1,
+                             0, 0, 0, 0,
+                             GAME_LIN_ACCEL_BOOST_COLOR);
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_PORTAL_4_X0,
+                             GAME_LIN_ACCEL_PORTAL_4_Y0,
+                             GAME_LIN_ACCEL_PORTAL_4_X1,
+                             GAME_LIN_ACCEL_PORTAL_4_Y1,
+                             GAME_LIN_ACCEL_PORTAL_4_RX,
+                             GAME_LIN_ACCEL_PORTAL_4_RY,
+                             GAME_LIN_ACCEL_PORTAL_4_FW,
+                             GAME_LIN_ACCEL_PORTAL_4_FC,
+                             GAME_LIN_ACCEL_BOOST_COLOR);
+        setSwipe(GAME_LIN_ACCEL_SWIPE_BOOST_X0 + 4*115,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_Y0,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_X1 + 4*115,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_Y1,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_DIRECTION);
+#ifdef GAME_LIN_ACCEL_DEBUG
+        SGUI_drawFrame(GAME_LIN_ACCEL_SWIPE_BOOST_X0 + 4*115,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_Y0,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_X1 + 4*115,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_Y1,
+                       0, 0, 1, 0x0000);
+#endif
+        gameLevel = BOOST_5;
+        break;
+
+      case BOOST_5:
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X0 + 4*115,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y0,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X1 + 4*115,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y1,
+                             0, 0, 0, 0,
+                             GAME_LIN_ACCEL_BOOST_COLOR);
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_PORTAL_5_X0,
+                             GAME_LIN_ACCEL_PORTAL_5_Y0,
+                             GAME_LIN_ACCEL_PORTAL_5_X1,
+                             GAME_LIN_ACCEL_PORTAL_5_Y1,
+                             GAME_LIN_ACCEL_PORTAL_5_RX,
+                             GAME_LIN_ACCEL_PORTAL_5_RY,
+                             GAME_LIN_ACCEL_PORTAL_5_FW,
+                             GAME_LIN_ACCEL_PORTAL_5_FC,
+                             GAME_LIN_ACCEL_BOOST_COLOR);
+        setSwipe(GAME_LIN_ACCEL_SWIPE_BOOST_X0 + 5*115,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_Y0,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_X1 + 5*115,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_Y1,
+                 GAME_LIN_ACCEL_SWIPE_BOOST_DIRECTION);
+#ifdef GAME_LIN_ACCEL_DEBUG
+        SGUI_drawFrame(GAME_LIN_ACCEL_SWIPE_BOOST_X0 + 5*115,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_Y0,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_X1 + 5*115,
+                       GAME_LIN_ACCEL_SWIPE_BOOST_Y1,
+                       0, 0, 1, 0x0000);
+#endif
+        gameLevel = BOOST_6;
+        break;
+
+      case BOOST_6:
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X0 + 5*115,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y0,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_X1 + 5*115,
+                             GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y1,
+                             0, 0, 0, 0,
+                             GAME_LIN_ACCEL_BOOST_COLOR);
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_PORTAL_1_X0,
+                             GAME_LIN_ACCEL_PORTAL_1_Y0,
+                             GAME_LIN_ACCEL_PORTAL_1_X1,
+                             GAME_LIN_ACCEL_PORTAL_1_Y1,
+                             GAME_LIN_ACCEL_PORTAL_1_RX,
+                             GAME_LIN_ACCEL_PORTAL_1_RY,
+                             GAME_LIN_ACCEL_PORTAL_1_FW,
+                             GAME_LIN_ACCEL_PORTAL_1_FC,
+                             GAME_LIN_ACCEL_BOOST_COLOR);
+        useSwipe(false);
+        gameLevel = FINISH;
         break;
 
       default:

@@ -6,7 +6,7 @@
 #include "SGUI.h"
 
 
-#define DELAY_BETWEEN_PAGES 50
+#define DELAY_BETWEEN_PAGES 80
 
 
 #define P0_L_HEADER_P

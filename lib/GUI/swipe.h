@@ -43,8 +43,8 @@ enum swipeDirection
 {
   SWIPE_DOWN,
   SWIPE_UP,
-  SWIPE_LEFT,
-  SWIPE_RIGHT
+  SWIPE_RIGHT,
+  SWIPE_LEFT
 };
 
 

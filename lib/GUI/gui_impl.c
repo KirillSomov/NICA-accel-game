@@ -3,13 +3,14 @@
 #include "LCD_api.h"
 #include "game_ions.h"
 #include "game_linAccel.h"
+#include "game_circAccel.h"
 
 
 SGUI_pageStorageCreate(0, 0, 5, 6, 0);
 SGUI_pageStorageCreate(1, 1, 3, 1, 1);
 SGUI_pageStorageCreate(2, 0, 4, 1, 0);
-SGUI_pageStorageCreate(3, 0, 3, 1, 0);
-SGUI_pageStorageCreate(4, 0, 3, 1, 0);
+SGUI_pageStorageCreate(3, 0, 4, 1, 0);
+SGUI_pageStorageCreate(4, 0, 4, 1, 0);
 SGUI_pagesStorageCreate(5);
 SGUI_guiStorageCreate();
 
@@ -450,6 +451,8 @@ static void page_3_init(void)
                      P3_PIC_CIRCLE_BOOSTER_RY,
                      P3_PIC_CIRCLE_BOOSTER_FW,
                      P3_PIC_CIRCLE_BOOSTER_FC);
+  game_circAccel_init();
+  SGUI_pageSetActionFunc(3, game_circAccel_handler);
   SGUI_drawPage(3);
 }
 
