@@ -33,10 +33,11 @@
 #define P0_B_START_FW 2
 #define P0_B_START_BC 0x4BC6
 #define P0_B_START_FC 0x21E2
-#define P0_B_START_T 0
-#define P0_B_START_TC 0
-#define P0_B_START_TMX 0
-#define P0_B_START_TMY 0
+#define P0_B_START_T "Начать игру"
+#define P0_B_START_TS FONT_SIZE_48
+#define P0_B_START_TC 0xFFFF
+#define P0_B_START_TMX 5
+#define P0_B_START_TMY 5
 #define P0_B_START_STATE 1
 #define P0_B_START_DELAY 500
 #define P0_B_START_ACT btn_start
@@ -63,6 +64,7 @@
 #define P0_B_IONS_SOURCE_BC 0x4BC6
 #define P0_B_IONS_SOURCE_FC 0x21E2
 #define P0_B_IONS_SOURCE_T 0
+#define P0_B_IONS_SOURCE_TS 0
 #define P0_B_IONS_SOURCE_TC 0
 #define P0_B_IONS_SOURCE_TMX 0
 #define P0_B_IONS_SOURCE_TMY 0
@@ -92,6 +94,7 @@
 #define P0_B_LINEAR_BOOSTER_BC 0x4BC6
 #define P0_B_LINEAR_BOOSTER_FC 0x21E2
 #define P0_B_LINEAR_BOOSTER_T 0
+#define P0_B_LINEAR_BOOSTER_TS 0
 #define P0_B_LINEAR_BOOSTER_TC 0
 #define P0_B_LINEAR_BOOSTER_TMX 0
 #define P0_B_LINEAR_BOOSTER_TMY 0
@@ -121,6 +124,7 @@
 #define P0_B_CIRCLE_BOOSTER_BC 0x4BC6
 #define P0_B_CIRCLE_BOOSTER_FC 0x21E2
 #define P0_B_CIRCLE_BOOSTER_T 0
+#define P0_B_CIRCLE_BOOSTER_TS 0
 #define P0_B_CIRCLE_BOOSTER_TC 0
 #define P0_B_CIRCLE_BOOSTER_TMX 0
 #define P0_B_CIRCLE_BOOSTER_TMY 0
@@ -150,6 +154,7 @@
 #define P0_B_DETECTOR_BC 0x4BC6
 #define P0_B_DETECTOR_FC 0x21E2
 #define P0_B_DETECTOR_T 0
+#define P0_B_DETECTOR_TS 0
 #define P0_B_DETECTOR_TC 0
 #define P0_B_DETECTOR_TMX 0
 #define P0_B_DETECTOR_TMY 0
@@ -191,31 +196,14 @@
 #define P1_B_BACK_TO_START_FW 2
 #define P1_B_BACK_TO_START_BC 0x4BC6
 #define P1_B_BACK_TO_START_FC 0x21E2
-#define P1_B_BACK_TO_START_T 0
-#define P1_B_BACK_TO_START_TC 0
-#define P1_B_BACK_TO_START_TMX 0
-#define P1_B_BACK_TO_START_TMY 0
+#define P1_B_BACK_TO_START_T "Назад"
+#define P1_B_BACK_TO_START_TS FONT_SIZE_32
+#define P1_B_BACK_TO_START_TC 0xFFFF
+#define P1_B_BACK_TO_START_TMX 5
+#define P1_B_BACK_TO_START_TMY 5
 #define P1_B_BACK_TO_START_STATE 1
 #define P1_B_BACK_TO_START_DELAY 500
 #define P1_B_BACK_TO_START_ACT btn_backToStart
-
-#define P1_B_NEXT_P 1
-#define P1_B_NEXT_X0 869
-#define P1_B_NEXT_Y0 510
-#define P1_B_NEXT_X1 P1_B_NEXT_X0+120
-#define P1_B_NEXT_Y1 P1_B_NEXT_Y0+70
-#define P1_B_NEXT_RX 10
-#define P1_B_NEXT_RY 10
-#define P1_B_NEXT_FW 2
-#define P1_B_NEXT_BC 0x4BC6
-#define P1_B_NEXT_FC 0x21E2
-#define P1_B_NEXT_T 0
-#define P1_B_NEXT_TC 0
-#define P1_B_NEXT_TMX 0
-#define P1_B_NEXT_TMY 0
-#define P1_B_NEXT_STATE 1
-#define P1_B_NEXT_DELAY 500
-#define P1_B_NEXT_ACT btn_p1Next
 
 #define P1_PIC_IONS_SOURCE_P 1
 #define P1_PIC_IONS_SOURCE_PIC &ions_source_8bpp
@@ -240,31 +228,14 @@
 #define P2_B_BACK_TO_START_FW 2
 #define P2_B_BACK_TO_START_BC 0x4BC6
 #define P2_B_BACK_TO_START_FC 0x21E2
-#define P2_B_BACK_TO_START_T 0
-#define P2_B_BACK_TO_START_TC 0
-#define P2_B_BACK_TO_START_TMX 0
-#define P2_B_BACK_TO_START_TMY 0
+#define P2_B_BACK_TO_START_T "Назад"
+#define P2_B_BACK_TO_START_TS FONT_SIZE_32
+#define P2_B_BACK_TO_START_TC 0xFFFF
+#define P2_B_BACK_TO_START_TMX 5
+#define P2_B_BACK_TO_START_TMY 5
 #define P2_B_BACK_TO_START_STATE 1
 #define P2_B_BACK_TO_START_DELAY 500
 #define P2_B_BACK_TO_START_ACT btn_backToStart
-
-#define P2_B_NEXT_P 2
-#define P2_B_NEXT_X0 869
-#define P2_B_NEXT_Y0 510
-#define P2_B_NEXT_X1 P2_B_NEXT_X0+120
-#define P2_B_NEXT_Y1 P2_B_NEXT_Y0+70
-#define P2_B_NEXT_RX 10
-#define P2_B_NEXT_RY 10
-#define P2_B_NEXT_FW 2
-#define P2_B_NEXT_BC 0x4BC6
-#define P2_B_NEXT_FC 0x21E2
-#define P2_B_NEXT_T 0
-#define P2_B_NEXT_TC 0
-#define P2_B_NEXT_TMX 0
-#define P2_B_NEXT_TMY 0
-#define P2_B_NEXT_STATE 1
-#define P2_B_NEXT_DELAY 500
-#define P2_B_NEXT_ACT btn_p2Next
 
 #define P2_PIC_LINEAR_BOOSTER_P 2
 #define P2_PIC_LINEAR_BOOSTER_PIC &linear_booster_8bpp
@@ -289,31 +260,14 @@
 #define P3_B_BACK_TO_START_FW 2
 #define P3_B_BACK_TO_START_BC 0x4BC6
 #define P3_B_BACK_TO_START_FC 0x21E2
-#define P3_B_BACK_TO_START_T 0
-#define P3_B_BACK_TO_START_TC 0
-#define P3_B_BACK_TO_START_TMX 0
-#define P3_B_BACK_TO_START_TMY 0
+#define P3_B_BACK_TO_START_T "Назад"
+#define P3_B_BACK_TO_START_TS FONT_SIZE_32
+#define P3_B_BACK_TO_START_TC 0xFFFF
+#define P3_B_BACK_TO_START_TMX 5
+#define P3_B_BACK_TO_START_TMY 5
 #define P3_B_BACK_TO_START_STATE 1
 #define P3_B_BACK_TO_START_DELAY 500
 #define P3_B_BACK_TO_START_ACT btn_backToStart
-
-#define P3_B_NEXT_P 3
-#define P3_B_NEXT_X0 869
-#define P3_B_NEXT_Y0 510
-#define P3_B_NEXT_X1 P3_B_NEXT_X0+120
-#define P3_B_NEXT_Y1 P3_B_NEXT_Y0+70
-#define P3_B_NEXT_RX 10
-#define P3_B_NEXT_RY 10
-#define P3_B_NEXT_FW 2
-#define P3_B_NEXT_BC 0x4BC6
-#define P3_B_NEXT_FC 0x21E2
-#define P3_B_NEXT_T 0
-#define P3_B_NEXT_TC 0
-#define P3_B_NEXT_TMX 0
-#define P3_B_NEXT_TMY 0
-#define P3_B_NEXT_STATE 1
-#define P3_B_NEXT_DELAY 500
-#define P3_B_NEXT_ACT btn_p3Next
 
 #define P3_PIC_CIRCLE_BOOSTER_P 3
 #define P3_PIC_CIRCLE_BOOSTER_PIC &circle_booster_8bpp
@@ -338,49 +292,14 @@
 #define P4_B_BACK_TO_START_FW 2
 #define P4_B_BACK_TO_START_BC 0x4BC6
 #define P4_B_BACK_TO_START_FC 0x21E2
-#define P4_B_BACK_TO_START_T 0
-#define P4_B_BACK_TO_START_TC 0
-#define P4_B_BACK_TO_START_TMX 0
-#define P4_B_BACK_TO_START_TMY 0
+#define P4_B_BACK_TO_START_T "Назад"
+#define P4_B_BACK_TO_START_TS FONT_SIZE_32
+#define P4_B_BACK_TO_START_TC 0xFFFF
+#define P4_B_BACK_TO_START_TMX 5
+#define P4_B_BACK_TO_START_TMY 5
 #define P4_B_BACK_TO_START_STATE 1
 #define P4_B_BACK_TO_START_DELAY 500
 #define P4_B_BACK_TO_START_ACT btn_backToStart
-
-#define P4_B_CLEAR_P 4
-#define P4_B_CLEAR_X0 435
-#define P4_B_CLEAR_Y0 510
-#define P4_B_CLEAR_X1 P4_B_CLEAR_X0+120
-#define P4_B_CLEAR_Y1 P4_B_CLEAR_Y0+70
-#define P4_B_CLEAR_RX 10
-#define P4_B_CLEAR_RY 10
-#define P4_B_CLEAR_FW 2
-#define P4_B_CLEAR_BC 0xFFFF
-#define P4_B_CLEAR_FC 0x3823
-#define P4_B_CLEAR_T 0
-#define P4_B_CLEAR_TC 0
-#define P4_B_CLEAR_TMX 0
-#define P4_B_CLEAR_TMY 0
-#define P4_B_CLEAR_STATE 1
-#define P4_B_CLEAR_DELAY 500
-#define P4_B_CLEAR_ACT btn_p4Clear
-
-#define P4_B_NEXT_P 4
-#define P4_B_NEXT_X0 869
-#define P4_B_NEXT_Y0 510
-#define P4_B_NEXT_X1 P4_B_NEXT_X0+120
-#define P4_B_NEXT_Y1 P4_B_NEXT_Y0+70
-#define P4_B_NEXT_RX 10
-#define P4_B_NEXT_RY 10
-#define P4_B_NEXT_FW 2
-#define P4_B_NEXT_BC 0x4BC6
-#define P4_B_NEXT_FC 0x21E2
-#define P4_B_NEXT_T 0
-#define P4_B_NEXT_TC 0
-#define P4_B_NEXT_TMX 0
-#define P4_B_NEXT_TMY 0
-#define P4_B_NEXT_STATE 1
-#define P4_B_NEXT_DELAY 500
-#define P4_B_NEXT_ACT btn_p4Next
 
 #define P4_PIC_DETECTOR_P 4
 #define P4_PIC_DETECTOR_PIC &detector_8bpp
@@ -394,9 +313,11 @@
 #define P4_PIC_DETECTOR_FC 0
 
 
-
-
-
+enum GAME_MODE
+{
+  GAME_MODE_FREE,
+  GAME_MODE_GAME
+};
 
 
 void gui_init(void);

@@ -4,6 +4,7 @@
 #include "game_ions.h"
 #include "game_linAccel.h"
 #include "game_circAccel.h"
+#include "game_detector.h"
 
 
 SGUI_pageStorageCreate(0, 0, 5, 6, 0);
@@ -23,6 +24,9 @@ extern const unsigned char jinr_building_main_8bpp;
 extern const unsigned char nica_logo_8bpp;
 
 
+unsigned short gameMode = 0;
+
+
 void GUI_pagesStorageInit(void)
 {
   GUI.pages[0] = &page_0;
@@ -35,32 +39,37 @@ void GUI_pagesStorageInit(void)
 
 static void btn_start(void)
 {
-  SGUI_showPage(1);
+  gameMode = GAME_MODE_GAME;
   SGUI_idle(DELAY_BETWEEN_PAGES);
+  SGUI_showPage(1);
 }
 
 static void btn_picIonsSource(void)
 {
-  SGUI_showPage(1);
+  gameMode = GAME_MODE_FREE;
   SGUI_idle(DELAY_BETWEEN_PAGES);
+  SGUI_showPage(1);
 }
 
 static void btn_picLinearBooster(void)
 {
-  SGUI_showPage(2);
+  gameMode = GAME_MODE_FREE;
   SGUI_idle(DELAY_BETWEEN_PAGES);
+  SGUI_showPage(2);
 }
 
 static void btn_picCircleBooster(void)
 {
-  SGUI_showPage(3);
+  gameMode = GAME_MODE_FREE;
   SGUI_idle(DELAY_BETWEEN_PAGES);
+  SGUI_showPage(3);
 }
 
 static void btn_picDetector(void)
 {
-  SGUI_showPage(4);
+  gameMode = GAME_MODE_FREE;
   SGUI_idle(DELAY_BETWEEN_PAGES);
+  SGUI_showPage(4);
 }
 
 
@@ -87,6 +96,7 @@ static void page_0_init(void)
                     P0_B_START_BC,
                     P0_B_START_FC,
                     P0_B_START_T,
+                    P0_B_START_TS,
                     P0_B_START_TC,
                     P0_B_START_TMX,
                     P0_B_START_TMY,
@@ -104,6 +114,7 @@ static void page_0_init(void)
                     P0_B_IONS_SOURCE_BC,
                     P0_B_IONS_SOURCE_FC,
                     P0_B_IONS_SOURCE_T,
+                    P0_B_IONS_SOURCE_TS,
                     P0_B_IONS_SOURCE_TC,
                     P0_B_IONS_SOURCE_TMX,
                     P0_B_IONS_SOURCE_TMY,
@@ -121,6 +132,7 @@ static void page_0_init(void)
                     P0_B_LINEAR_BOOSTER_BC,
                     P0_B_LINEAR_BOOSTER_FC,
                     P0_B_LINEAR_BOOSTER_T,
+                    P0_B_LINEAR_BOOSTER_TS,
                     P0_B_LINEAR_BOOSTER_TC,
                     P0_B_LINEAR_BOOSTER_TMX,
                     P0_B_LINEAR_BOOSTER_TMY,
@@ -138,6 +150,7 @@ static void page_0_init(void)
                     P0_B_CIRCLE_BOOSTER_BC,
                     P0_B_CIRCLE_BOOSTER_FC,
                     P0_B_CIRCLE_BOOSTER_T,
+                    P0_B_CIRCLE_BOOSTER_TS,
                     P0_B_CIRCLE_BOOSTER_TC,
                     P0_B_CIRCLE_BOOSTER_TMX,
                     P0_B_CIRCLE_BOOSTER_TMY,
@@ -155,6 +168,7 @@ static void page_0_init(void)
                     P0_B_DETECTOR_BC,
                     P0_B_DETECTOR_FC,
                     P0_B_DETECTOR_T,
+                    P0_B_DETECTOR_TS,
                     P0_B_DETECTOR_TC,
                     P0_B_DETECTOR_TMX,
                     P0_B_DETECTOR_TMY,
@@ -251,12 +265,6 @@ static void btn_backToStart(void)
   SGUI_idle(DELAY_BETWEEN_PAGES);
 }
 
-static void btn_p1Next(void)
-{
-  SGUI_showPage(2);
-  SGUI_idle(DELAY_BETWEEN_PAGES);
-}
-
 
 static void page_1_init(void)
 {
@@ -280,29 +288,13 @@ static void page_1_init(void)
                     P1_B_BACK_TO_START_BC,
                     P1_B_BACK_TO_START_FC,
                     P1_B_BACK_TO_START_T,
+                    P1_B_BACK_TO_START_TS,
                     P1_B_BACK_TO_START_TC,
                     P1_B_BACK_TO_START_TMX,
                     P1_B_BACK_TO_START_TMY,
                     P1_B_BACK_TO_START_STATE,
                     P1_B_BACK_TO_START_DELAY,
                     P1_B_BACK_TO_START_ACT);
-  SGUI_createButton(P1_B_NEXT_P,
-                    P1_B_NEXT_X0,
-                    P1_B_NEXT_Y0,
-                    P1_B_NEXT_X1,
-                    P1_B_NEXT_Y1,
-                    P1_B_NEXT_RX,
-                    P1_B_NEXT_RY,
-                    P1_B_NEXT_FW,
-                    P1_B_NEXT_BC,
-                    P1_B_NEXT_FC,
-                    P1_B_NEXT_T,
-                    P1_B_NEXT_TC,
-                    P1_B_NEXT_TMX,
-                    P1_B_NEXT_TMY,
-                    P1_B_NEXT_STATE,
-                    P1_B_NEXT_DELAY,
-                    P1_B_NEXT_ACT);
   SGUI_createPicture(P1_PIC_IONS_SOURCE_P,
                      P1_PIC_IONS_SOURCE_PIC,
                      P1_PIC_IONS_SOURCE_X,
@@ -314,14 +306,8 @@ static void page_1_init(void)
                      P1_PIC_IONS_SOURCE_FW,
                      P1_PIC_IONS_SOURCE_FC);
   game_ions_init();
+  SGUI_pageSetActionFunc(1, game_ions_handler);
   SGUI_drawPage(1);
-}
-
-
-static void btn_p2Next(void)
-{
-  SGUI_showPage(3);
-  SGUI_idle(DELAY_BETWEEN_PAGES);
 }
 
 
@@ -349,29 +335,13 @@ static void page_2_init(void)
                     P2_B_BACK_TO_START_BC,
                     P2_B_BACK_TO_START_FC,
                     P2_B_BACK_TO_START_T,
+                    P2_B_BACK_TO_START_TS,
                     P2_B_BACK_TO_START_TC,
                     P2_B_BACK_TO_START_TMX,
                     P2_B_BACK_TO_START_TMY,
                     P2_B_BACK_TO_START_STATE,
                     P2_B_BACK_TO_START_DELAY,
                     P2_B_BACK_TO_START_ACT);
-  SGUI_createButton(P2_B_NEXT_P,
-                    P2_B_NEXT_X0,
-                    P2_B_NEXT_Y0,
-                    P2_B_NEXT_X1,
-                    P2_B_NEXT_Y1,
-                    P2_B_NEXT_RX,
-                    P2_B_NEXT_RY,
-                    P2_B_NEXT_FW,
-                    P2_B_NEXT_BC,
-                    P2_B_NEXT_FC,
-                    P2_B_NEXT_T,
-                    P2_B_NEXT_TC,
-                    P2_B_NEXT_TMX,
-                    P2_B_NEXT_TMY,
-                    P2_B_NEXT_STATE,
-                    P2_B_NEXT_DELAY,
-                    P2_B_NEXT_ACT);
   SGUI_createPicture(P2_PIC_LINEAR_BOOSTER_P,
                      P2_PIC_LINEAR_BOOSTER_PIC,
                      P2_PIC_LINEAR_BOOSTER_X,
@@ -385,13 +355,6 @@ static void page_2_init(void)
   game_linAccel_init();
   SGUI_pageSetActionFunc(2, game_linAccel_handler);
   SGUI_drawPage(2);
-}
-
-
-static void btn_p3Next(void)
-{
-  SGUI_showPage(4);
-  SGUI_idle(DELAY_BETWEEN_PAGES);
 }
 
 
@@ -418,29 +381,13 @@ static void page_3_init(void)
                     P3_B_BACK_TO_START_BC,
                     P3_B_BACK_TO_START_FC,
                     P3_B_BACK_TO_START_T,
+                    P3_B_BACK_TO_START_TS,
                     P3_B_BACK_TO_START_TC,
                     P3_B_BACK_TO_START_TMX,
                     P3_B_BACK_TO_START_TMY,
                     P3_B_BACK_TO_START_STATE,
                     P3_B_BACK_TO_START_DELAY,
                     P3_B_BACK_TO_START_ACT);
-  SGUI_createButton(P3_B_NEXT_P,
-                    P3_B_NEXT_X0,
-                    P3_B_NEXT_Y0,
-                    P3_B_NEXT_X1,
-                    P3_B_NEXT_Y1,
-                    P3_B_NEXT_RX,
-                    P3_B_NEXT_RY,
-                    P3_B_NEXT_FW,
-                    P3_B_NEXT_BC,
-                    P3_B_NEXT_FC,
-                    P3_B_NEXT_T,
-                    P3_B_NEXT_TC,
-                    P3_B_NEXT_TMX,
-                    P3_B_NEXT_TMY,
-                    P3_B_NEXT_STATE,
-                    P3_B_NEXT_DELAY,
-                    P3_B_NEXT_ACT);
   SGUI_createPicture(P3_PIC_CIRCLE_BOOSTER_P,
                      P3_PIC_CIRCLE_BOOSTER_PIC,
                      P3_PIC_CIRCLE_BOOSTER_X,
@@ -454,17 +401,6 @@ static void page_3_init(void)
   game_circAccel_init();
   SGUI_pageSetActionFunc(3, game_circAccel_handler);
   SGUI_drawPage(3);
-}
-
-
-static void btn_p4Clear(void)
-{
-  ;
-}
-
-static void btn_p4Next(void)
-{
-  ;
 }
 
 
@@ -490,46 +426,13 @@ static void page_4_init(void)
                     P4_B_BACK_TO_START_BC,
                     P4_B_BACK_TO_START_FC,
                     P4_B_BACK_TO_START_T,
+                    P4_B_BACK_TO_START_TS,
                     P4_B_BACK_TO_START_TC,
                     P4_B_BACK_TO_START_TMX,
                     P4_B_BACK_TO_START_TMY,
                     P4_B_BACK_TO_START_STATE,
                     P4_B_BACK_TO_START_DELAY,
                     P4_B_BACK_TO_START_ACT);
-  SGUI_createButton(P4_B_CLEAR_P,
-                    P4_B_CLEAR_X0,
-                    P4_B_CLEAR_Y0,
-                    P4_B_CLEAR_X1,
-                    P4_B_CLEAR_Y1,
-                    P4_B_CLEAR_RX,
-                    P4_B_CLEAR_RY,
-                    P4_B_CLEAR_FW,
-                    P4_B_CLEAR_BC,
-                    P4_B_CLEAR_FC,
-                    P4_B_CLEAR_T,
-                    P4_B_CLEAR_TC,
-                    P4_B_CLEAR_TMX,
-                    P4_B_CLEAR_TMY,
-                    P4_B_CLEAR_STATE,
-                    P4_B_CLEAR_DELAY,
-                    P4_B_CLEAR_ACT);
-  SGUI_createButton(P4_B_NEXT_P,
-                    P4_B_NEXT_X0,
-                    P4_B_NEXT_Y0,
-                    P4_B_NEXT_X1,
-                    P4_B_NEXT_Y1,
-                    P4_B_NEXT_RX,
-                    P4_B_NEXT_RY,
-                    P4_B_NEXT_FW,
-                    P4_B_NEXT_BC,
-                    P4_B_NEXT_FC,
-                    P4_B_NEXT_T,
-                    P4_B_NEXT_TC,
-                    P4_B_NEXT_TMX,
-                    P4_B_NEXT_TMY,
-                    P4_B_NEXT_STATE,
-                    P4_B_NEXT_DELAY,
-                    P4_B_NEXT_ACT);
   SGUI_createPicture(P4_PIC_DETECTOR_P,
                      P4_PIC_DETECTOR_PIC,
                      P4_PIC_DETECTOR_X,
@@ -540,6 +443,8 @@ static void page_4_init(void)
                      P4_PIC_DETECTOR_RY,
                      P4_PIC_DETECTOR_FW,
                      P4_PIC_DETECTOR_FC);
+  game_detector_init();
+  SGUI_pageSetActionFunc(4, game_detector_handler);
   SGUI_drawPage(4);
 }
 

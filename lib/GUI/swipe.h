@@ -41,6 +41,7 @@ struct swipe
 
 enum swipeDirection
 {
+  SWIPE_TOUCH,
   SWIPE_DOWN,
   SWIPE_UP,
   SWIPE_RIGHT,

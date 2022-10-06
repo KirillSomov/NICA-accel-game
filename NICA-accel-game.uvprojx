@@ -514,6 +514,16 @@
               <FileType>5</FileType>
               <FilePath>.\lib\GUI\game_circAccel.h</FilePath>
             </File>
+            <File>
+              <FileName>game_detector.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\GUI\game_detector.c</FilePath>
+            </File>
+            <File>
+              <FileName>game_detector.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\lib\GUI\game_detector.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

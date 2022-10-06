@@ -43,6 +43,18 @@ bool isSwipe(void)
   swipeData.newTouch.touch = SGUI_getSampleTouch(&swipeData.newTouch.x, &swipeData.newTouch.y);
   switch(swipeData.direction)
   {
+    case SWIPE_TOUCH:
+      if(swipeData.newTouch.touch == false)
+      {
+        return false;        
+      }
+      if(((swipeData.newTouch.x > swipeData.swipeArea.x0) && (swipeData.newTouch.x < swipeData.swipeArea.x1))
+       &&((swipeData.newTouch.y > swipeData.swipeArea.y0) && (swipeData.newTouch.y < swipeData.swipeArea.y1)))
+      {
+        return true;
+      }
+      break;
+
     case SWIPE_DOWN:
       if(swipeData.newTouch.touch == false)
       {

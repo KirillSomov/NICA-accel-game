@@ -1,10 +1,36 @@
 
+#include "gui_impl.h"
 #include "game_linAccel.h"
 #include "stdbool.h"
 #include "swipe.h"
 
 
+enum gameLinAccelLevel
+{
+  START = 0,
+  PORTAL_1,
+  PORTAL_2,
+  PORTAL_3,
+  PORTAL_4,
+  PORTAL_5,
+  BOOST_1,
+  BOOST_2,
+  BOOST_3,
+  BOOST_4,
+  BOOST_5,
+  BOOST_6,
+  FINISH
+};
+
+
 static unsigned short gameLevel = 0;
+
+
+static void btn_next(void)
+{
+  SGUI_showPage(3);
+  SGUI_idle(DELAY_BETWEEN_PAGES);
+}
 
 
 static void btn_linAccelPower(void)
@@ -51,7 +77,7 @@ static void btn_clear(void)
   SGUI_buttonSetColor(2, 2, GAME_LIN_ACCEL_POWER_OFF_COLOR);
   SGUI_buttonInUsage(2, 2, true);
   useSwipe(false);
-  gameLevel = 0;
+  gameLevel = START;
   SGUI_drawFilledFrame(GAME_LIN_ACCEL_LEFT_PORTAL_X0,
                        GAME_LIN_ACCEL_LEFT_PORTAL_Y0,
                        GAME_LIN_ACCEL_LEFT_PORTAL_X1,
@@ -247,6 +273,26 @@ void game_linAccel_init(void)
                        GAME_LIN_ACCEL_PORTAL_5_FC,
                        GAME_LIN_ACCEL_PORTAL_5_C);
 
+  SGUI_createButton(GAME_LIN_ACCEL_B_NEXT_P,
+                    GAME_LIN_ACCEL_B_NEXT_X0,
+                    GAME_LIN_ACCEL_B_NEXT_Y0,
+                    GAME_LIN_ACCEL_B_NEXT_X1,
+                    GAME_LIN_ACCEL_B_NEXT_Y1,
+                    GAME_LIN_ACCEL_B_NEXT_RX,
+                    GAME_LIN_ACCEL_B_NEXT_RY,
+                    GAME_LIN_ACCEL_B_NEXT_FW,
+                    GAME_LIN_ACCEL_B_NEXT_BC,
+                    GAME_LIN_ACCEL_B_NEXT_FC,
+                    GAME_LIN_ACCEL_B_NEXT_T,
+                    GAME_LIN_ACCEL_B_NEXT_TS,
+                    GAME_LIN_ACCEL_B_NEXT_TC,
+                    GAME_LIN_ACCEL_B_NEXT_TMX,
+                    GAME_LIN_ACCEL_B_NEXT_TMY,
+                    GAME_LIN_ACCEL_B_NEXT_STATE,
+                    GAME_LIN_ACCEL_B_NEXT_DELAY,
+                    GAME_LIN_ACCEL_B_NEXT_ACT);
+  SGUI_buttonVisibility(GAME_LIN_ACCEL_B_NEXT_P, 1, false);
+  SGUI_buttonInUsage(GAME_LIN_ACCEL_B_NEXT_P, 1, false);
   SGUI_createButton(GAME_LIN_ACCEL_B_POWER_P,
                     GAME_LIN_ACCEL_B_POWER_X0,
                     GAME_LIN_ACCEL_B_POWER_Y0,
@@ -258,6 +304,7 @@ void game_linAccel_init(void)
                     GAME_LIN_ACCEL_B_POWER_BC,
                     GAME_LIN_ACCEL_B_POWER_FC,
                     GAME_LIN_ACCEL_B_POWER_T,
+                    GAME_LIN_ACCEL_B_POWER_TS,
                     GAME_LIN_ACCEL_B_POWER_TC,
                     GAME_LIN_ACCEL_B_POWER_TMX,
                     GAME_LIN_ACCEL_B_POWER_TMY,
@@ -275,6 +322,7 @@ void game_linAccel_init(void)
                     GAME_LIN_ACCEL_B_CLEAR_BC,
                     GAME_LIN_ACCEL_B_CLEAR_FC,
                     GAME_LIN_ACCEL_B_CLEAR_T,
+                    GAME_LIN_ACCEL_B_CLEAR_TS,
                     GAME_LIN_ACCEL_B_CLEAR_TC,
                     GAME_LIN_ACCEL_B_CLEAR_TMX,
                     GAME_LIN_ACCEL_B_CLEAR_TMY,
@@ -613,6 +661,13 @@ void game_linAccel_handler(void)
                              GAME_LIN_ACCEL_BOOST_COLOR);
         useSwipe(false);
         gameLevel = FINISH;
+        break;
+
+      case FINISH:
+        SGUI_buttonVisibility(GAME_LIN_ACCEL_B_NEXT_P, 1, true);
+        SGUI_buttonInUsage(GAME_LIN_ACCEL_B_NEXT_P, 1, true);
+        useSwipe(false);
+        gameLevel = START;
         break;
 
       default:

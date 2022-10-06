@@ -1,4 +1,5 @@
 
+#include "gui_impl.h"
 #include "game_circAccel.h"
 #include "stdbool.h"
 #include "swipe.h"
@@ -12,7 +13,8 @@ static unsigned short gameLevel = 0;
 
 enum gameCircAccelLevel
 {
-  PORTAL_1 = 1,
+  START = 0,
+  PORTAL_1,
   PORTAL_2,
   PORTAL_3,
   PORTAL_4,
@@ -22,6 +24,13 @@ enum gameCircAccelLevel
   PORTAL_8,
   FINISH
 };
+
+
+static void btn_next(void)
+{
+  SGUI_showPage(4);
+  SGUI_idle(DELAY_BETWEEN_PAGES);
+}
 
 
 static void btn_circAccelPower(void)
@@ -48,7 +57,7 @@ static void btn_clear(void)
   SGUI_buttonSetColor(3, 2, GAME_CIRC_ACCEL_POWER_OFF_COLOR);
   SGUI_buttonInUsage(3, 2, true);
   useSwipe(false);
-  gameLevel = 0;
+  gameLevel = START;
   
   SGUI_drawLine(GAME_CIRC_ACCEL_SWIPE_LINE_PORTAL_1_X0,
                 GAME_CIRC_ACCEL_SWIPE_LINE_PORTAL_1_Y0,
@@ -206,7 +215,24 @@ void game_circAccel_init(void)
                         0x0000,            
                         GAME_CIRC_ACCEL_POWER_OFF_COLOR);
 
-
+  SGUI_createButton(GAME_CIRC_ACCEL_B_NEXT_P,
+                    GAME_CIRC_ACCEL_B_NEXT_X0,
+                    GAME_CIRC_ACCEL_B_NEXT_Y0,
+                    GAME_CIRC_ACCEL_B_NEXT_X1,
+                    GAME_CIRC_ACCEL_B_NEXT_Y1,
+                    GAME_CIRC_ACCEL_B_NEXT_RX,
+                    GAME_CIRC_ACCEL_B_NEXT_RY,
+                    GAME_CIRC_ACCEL_B_NEXT_FW,
+                    GAME_CIRC_ACCEL_B_NEXT_BC,
+                    GAME_CIRC_ACCEL_B_NEXT_FC,
+                    GAME_CIRC_ACCEL_B_NEXT_T,
+                    GAME_CIRC_ACCEL_B_NEXT_TS,
+                    GAME_CIRC_ACCEL_B_NEXT_TC,
+                    GAME_CIRC_ACCEL_B_NEXT_TMX,
+                    GAME_CIRC_ACCEL_B_NEXT_TMY,
+                    GAME_CIRC_ACCEL_B_NEXT_STATE,
+                    GAME_CIRC_ACCEL_B_NEXT_DELAY,
+                    GAME_CIRC_ACCEL_B_NEXT_ACT);
   SGUI_createButton(GAME_CIRC_ACCEL_B_POWER_P,
                     GAME_CIRC_ACCEL_B_POWER_X0,
                     GAME_CIRC_ACCEL_B_POWER_Y0,
@@ -218,6 +244,7 @@ void game_circAccel_init(void)
                     GAME_CIRC_ACCEL_B_POWER_BC,
                     GAME_CIRC_ACCEL_B_POWER_FC,
                     GAME_CIRC_ACCEL_B_POWER_T,
+                    GAME_CIRC_ACCEL_B_POWER_TS,
                     GAME_CIRC_ACCEL_B_POWER_TC,
                     GAME_CIRC_ACCEL_B_POWER_TMX,
                     GAME_CIRC_ACCEL_B_POWER_TMY,
@@ -235,6 +262,7 @@ void game_circAccel_init(void)
                     GAME_CIRC_ACCEL_B_CLEAR_BC,
                     GAME_CIRC_ACCEL_B_CLEAR_FC,
                     GAME_CIRC_ACCEL_B_CLEAR_T,
+                    GAME_CIRC_ACCEL_B_CLEAR_TS,
                     GAME_CIRC_ACCEL_B_CLEAR_TC,
                     GAME_CIRC_ACCEL_B_CLEAR_TMX,
                     GAME_CIRC_ACCEL_B_CLEAR_TMY,
@@ -460,6 +488,13 @@ void game_circAccel_handler(void)
                               0x0000,            
                               GAME_CIRC_ACCEL_POWER_ON_COLOR);
         gameLevel = FINISH;
+        break;
+
+      case FINISH:
+        SGUI_buttonVisibility(GAME_CIRC_ACCEL_B_NEXT_P, 1, true);
+        SGUI_buttonInUsage(GAME_CIRC_ACCEL_B_NEXT_P, 1, true);
+        useSwipe(false);
+        gameLevel = START;
         break;
 
       default:
