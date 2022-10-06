@@ -9,6 +9,9 @@
 #define GAME_LIN_ACCEL_DEBUG
 
 
+#define GAME_LIN_ACCEL_PAGE 2
+
+
 #define GAME_LIN_ACCEL_BUTTONS 1
 
 
@@ -217,8 +220,23 @@
 #define GAME_LIN_ACCEL_SWIPE_BOOST_DIRECTION SWIPE_RIGHT
 
 
+#define GAME_LIN_ACCEL_STATUS_BAR_AREA_X0 600
+#define GAME_LIN_ACCEL_STATUS_BAR_AREA_Y0 490
+#define GAME_LIN_ACCEL_STATUS_BAR_AREA_X1 860
+#define GAME_LIN_ACCEL_STATUS_BAR_AREA_Y1 590
+
+#define GAME_LIN_ACCEL_STATUS_BAR_TEXT_X GAME_LIN_ACCEL_STATUS_BAR_AREA_X0+10
+#define GAME_LIN_ACCEL_STATUS_BAR_TEXT_Y GAME_LIN_ACCEL_STATUS_BAR_AREA_Y0+15
+#define GAME_LIN_ACCEL_STATUS_BAR_TEXT_POWER "  Отлично!\nПитание включено!"
+#define GAME_LIN_ACCEL_STATUS_BAR_TEXT_PORTAL "  Отлично!\nСтанции запущены!"
+#define GAME_LIN_ACCEL_STATUS_BAR_TEXT_BOOST "  Отлично!\nУскоритель запущен!"
+#define GAME_LIN_ACCEL_STATUS_BAR_TEXT_NEXT "Вперёд к круговому\n    ускорителю!"
+#define GAME_LIN_ACCEL_STATUS_BAR_TEXT_FREE "Мини игра\nпройдена!"
+
+
 void game_linAccel_init(void);
 void game_linAccel_handler(void);
+void game_linAccel_cleaner(void);
 
 
 #endif

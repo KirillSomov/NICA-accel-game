@@ -9,7 +9,7 @@
 
 
 static unsigned short gameLevel = 0;
-
+extern unsigned short gameMode;
 
 enum gameCircAccelLevel
 {
@@ -22,6 +22,15 @@ enum gameCircAccelLevel
   PORTAL_6,
   PORTAL_7,
   PORTAL_8,
+  BOOST_1,
+  BOOST_2,
+  BOOST_3,
+  BOOST_4,
+  BOOST_5,
+  BOOST_6,
+  BOOST_7,
+  BOOST_8,
+  BOOST_9,
   FINISH
 };
 
@@ -487,13 +496,196 @@ void game_circAccel_handler(void)
                               GAME_CIRC_ACCEL_PORTAL_FW,
                               0x0000,            
                               GAME_CIRC_ACCEL_POWER_ON_COLOR);
+        setSwipe(GAME_CIRC_ACCEL_SWIPE_BOOST_1_X0,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_1_Y0,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_1_X1,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_1_Y1,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_1_DIRECTION);
+#ifdef GAME_CIRC_ACCEL_DEBUG
+        SGUI_drawFrame(GAME_CIRC_ACCEL_SWIPE_BOOST_1_X0,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_1_Y0,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_1_X1,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_1_Y1,
+                       0, 0, 1, 0x0000);
+#endif
+        gameLevel = BOOST_1;
+        break;
+
+      case BOOST_1:
+        SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_2_X,
+                              GAME_CIRC_ACCEL_PORTAL_2_Y,
+                              GAME_CIRC_ACCEL_PORTAL_R,
+                              GAME_CIRC_ACCEL_PORTAL_FW,
+                              0x0000,
+                              GAME_CIRC_ACCEL_BOOST_COLOR);
+        setSwipe(GAME_CIRC_ACCEL_SWIPE_BOOST_2_X0,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_2_Y0,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_2_X1,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_2_Y1,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_2_DIRECTION);
+#ifdef GAME_CIRC_ACCEL_DEBUG
+        SGUI_drawFrame(GAME_CIRC_ACCEL_SWIPE_BOOST_2_X0,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_2_Y0,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_2_X1,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_2_Y1,
+                       0, 0, 1, 0x0000);
+#endif
+        gameLevel = BOOST_2;
+        break;
+
+      case BOOST_2:
+        SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_3_X,
+                              GAME_CIRC_ACCEL_PORTAL_3_Y,
+                              GAME_CIRC_ACCEL_PORTAL_R,
+                              GAME_CIRC_ACCEL_PORTAL_FW,
+                              0x0000,
+                              GAME_CIRC_ACCEL_BOOST_COLOR);
+        setSwipe(GAME_CIRC_ACCEL_SWIPE_BOOST_3_X0,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_3_Y0,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_3_X1,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_3_Y1,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_3_DIRECTION);
+#ifdef GAME_CIRC_ACCEL_DEBUG
+        SGUI_drawFrame(GAME_CIRC_ACCEL_SWIPE_BOOST_3_X0,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_3_Y0,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_3_X1,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_3_Y1,
+                       0, 0, 1, 0x0000);
+#endif
+        gameLevel = BOOST_3;
+        break;
+
+      case BOOST_3:
+        SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_4_X,
+                              GAME_CIRC_ACCEL_PORTAL_4_Y,
+                              GAME_CIRC_ACCEL_PORTAL_R,
+                              GAME_CIRC_ACCEL_PORTAL_FW,
+                              0x0000,
+                              GAME_CIRC_ACCEL_BOOST_COLOR);
+        setSwipe(GAME_CIRC_ACCEL_SWIPE_BOOST_4_X0,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_4_Y0,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_4_X1,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_4_Y1,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_4_DIRECTION);
+#ifdef GAME_CIRC_ACCEL_DEBUG
+        SGUI_drawFrame(GAME_CIRC_ACCEL_SWIPE_BOOST_4_X0,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_4_Y0,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_4_X1,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_4_Y1,
+                       0, 0, 1, 0x0000);
+#endif
+        gameLevel = BOOST_4;
+        break;
+
+      case BOOST_4:
+        SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_5_X,
+                              GAME_CIRC_ACCEL_PORTAL_5_Y,
+                              GAME_CIRC_ACCEL_PORTAL_R,
+                              GAME_CIRC_ACCEL_PORTAL_FW,
+                              0x0000,
+                              GAME_CIRC_ACCEL_BOOST_COLOR);
+        setSwipe(GAME_CIRC_ACCEL_SWIPE_BOOST_5_X0,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_5_Y0,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_5_X1,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_5_Y1,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_5_DIRECTION);
+#ifdef GAME_CIRC_ACCEL_DEBUG
+        SGUI_drawFrame(GAME_CIRC_ACCEL_SWIPE_BOOST_5_X0,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_5_Y0,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_5_X1,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_5_Y1,
+                       0, 0, 1, 0x0000);
+#endif
+        gameLevel = BOOST_5;
+        break;
+
+      case BOOST_5:
+        SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_6_X,
+                              GAME_CIRC_ACCEL_PORTAL_6_Y,
+                              GAME_CIRC_ACCEL_PORTAL_R,
+                              GAME_CIRC_ACCEL_PORTAL_FW,
+                              0x0000,
+                              GAME_CIRC_ACCEL_BOOST_COLOR);
+        setSwipe(GAME_CIRC_ACCEL_SWIPE_BOOST_6_X0,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_6_Y0,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_6_X1,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_6_Y1,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_6_DIRECTION);
+#ifdef GAME_CIRC_ACCEL_DEBUG
+        SGUI_drawFrame(GAME_CIRC_ACCEL_SWIPE_BOOST_6_X0,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_6_Y0,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_6_X1,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_6_Y1,
+                       0, 0, 1, 0x0000);
+#endif
+        gameLevel = BOOST_6;
+        break;
+
+      case BOOST_7:
+        SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_7_X,
+                              GAME_CIRC_ACCEL_PORTAL_7_Y,
+                              GAME_CIRC_ACCEL_PORTAL_R,
+                              GAME_CIRC_ACCEL_PORTAL_FW,
+                              0x0000,
+                              GAME_CIRC_ACCEL_BOOST_COLOR);
+        setSwipe(GAME_CIRC_ACCEL_SWIPE_BOOST_7_X0,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_7_Y0,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_7_X1,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_7_Y1,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_7_DIRECTION);
+#ifdef GAME_CIRC_ACCEL_DEBUG
+        SGUI_drawFrame(GAME_CIRC_ACCEL_SWIPE_BOOST_7_X0,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_7_Y0,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_7_X1,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_7_Y1,
+                       0, 0, 1, 0x0000);
+#endif
+        gameLevel = BOOST_8;
+        break;
+
+      case BOOST_8:
+        SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_8_X,
+                              GAME_CIRC_ACCEL_PORTAL_8_Y,
+                              GAME_CIRC_ACCEL_PORTAL_R,
+                              GAME_CIRC_ACCEL_PORTAL_FW,
+                              0x0000,
+                              GAME_CIRC_ACCEL_BOOST_COLOR);
+        setSwipe(GAME_CIRC_ACCEL_SWIPE_BOOST_8_X0,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_8_Y0,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_8_X1,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_8_Y1,
+                 GAME_CIRC_ACCEL_SWIPE_BOOST_8_DIRECTION);
+#ifdef GAME_CIRC_ACCEL_DEBUG
+        SGUI_drawFrame(GAME_CIRC_ACCEL_SWIPE_BOOST_8_X0,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_8_Y0,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_8_X1,
+                       GAME_CIRC_ACCEL_SWIPE_BOOST_8_Y1,
+                       0, 0, 1, 0x0000);
+#endif
+        gameLevel = BOOST_8;
+        break;
+
+      case BOOST_9:
+        SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_1_X,
+                              GAME_CIRC_ACCEL_PORTAL_1_Y,
+                              GAME_CIRC_ACCEL_PORTAL_R,
+                              GAME_CIRC_ACCEL_PORTAL_FW,
+                              0x0000,
+                              GAME_CIRC_ACCEL_BOOST_COLOR);
+        useSwipe(false);
         gameLevel = FINISH;
         break;
 
       case FINISH:
-        SGUI_buttonVisibility(GAME_CIRC_ACCEL_B_NEXT_P, 1, true);
-        SGUI_buttonInUsage(GAME_CIRC_ACCEL_B_NEXT_P, 1, true);
-        useSwipe(false);
+        if(gameMode == GAME_MODE_GAME)
+        {
+          SGUI_buttonVisibility(GAME_CIRC_ACCEL_B_NEXT_P, 1, true);
+          SGUI_buttonInUsage(GAME_CIRC_ACCEL_B_NEXT_P, 1, true);
+        }
+        else
+        {
+          ;
+        }
         gameLevel = START;
         break;
 
@@ -501,4 +693,12 @@ void game_circAccel_handler(void)
         break;
     }
   }
+}
+
+
+void game_circAccel_cleaner(void)
+{
+  SGUI_setPage(GAME_CIRC_ACCEL_PAGE);
+  btn_clear();
+  SGUI_setPage(GUI.currentPage);
 }

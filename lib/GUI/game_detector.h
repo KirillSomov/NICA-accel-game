@@ -9,6 +9,9 @@
 #define GAME_DECETOR_DEBUG
 
 
+#define GAME_DETECTOR_PAGE 4
+
+
 #define GAME_DETECTOR_POWER_OFF_COLOR 0xAD55
 #define GAME_DETECTOR_POWER_ON_COLOR 0x6DCA
 
@@ -130,6 +133,7 @@
 
 void game_detector_init(void);
 void game_detector_handler(void);
+void game_detector_cleaner(void);
 
 
 #endif

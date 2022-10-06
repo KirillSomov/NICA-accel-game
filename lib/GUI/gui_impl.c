@@ -12,7 +12,8 @@ SGUI_pageStorageCreate(1, 1, 3, 1, 1);
 SGUI_pageStorageCreate(2, 0, 4, 1, 0);
 SGUI_pageStorageCreate(3, 0, 4, 1, 0);
 SGUI_pageStorageCreate(4, 0, 4, 1, 0);
-SGUI_pagesStorageCreate(5);
+SGUI_pageStorageCreate(5, 0, 1, 2, 0);
+SGUI_pagesStorageCreate(6);
 SGUI_guiStorageCreate();
 
 
@@ -22,6 +23,8 @@ extern const unsigned char ions_source_8bpp;
 extern const unsigned char linear_booster_8bpp;
 extern const unsigned char jinr_building_main_8bpp;
 extern const unsigned char nica_logo_8bpp;
+extern const unsigned char team_8bpp;
+extern const unsigned char elements_8bpp;
 
 
 unsigned short gameMode = 0;
@@ -34,6 +37,7 @@ void GUI_pagesStorageInit(void)
   GUI.pages[2] = &page_2;
   GUI.pages[3] = &page_3;
   GUI.pages[4] = &page_4;
+  GUI.pages[5] = &page_5;
 }
 
 
@@ -41,6 +45,10 @@ static void btn_start(void)
 {
   gameMode = GAME_MODE_GAME;
   SGUI_idle(DELAY_BETWEEN_PAGES);
+  game_ions_cleaner();
+  game_linAccel_cleaner();
+  game_circAccel_cleaner();
+  game_detector_cleaner();
   SGUI_showPage(1);
 }
 
@@ -48,6 +56,7 @@ static void btn_picIonsSource(void)
 {
   gameMode = GAME_MODE_FREE;
   SGUI_idle(DELAY_BETWEEN_PAGES);
+  game_ions_cleaner();
   SGUI_showPage(1);
 }
 
@@ -55,6 +64,7 @@ static void btn_picLinearBooster(void)
 {
   gameMode = GAME_MODE_FREE;
   SGUI_idle(DELAY_BETWEEN_PAGES);
+  game_linAccel_cleaner();
   SGUI_showPage(2);
 }
 
@@ -62,6 +72,7 @@ static void btn_picCircleBooster(void)
 {
   gameMode = GAME_MODE_FREE;
   SGUI_idle(DELAY_BETWEEN_PAGES);
+  game_circAccel_cleaner();
   SGUI_showPage(3);
 }
 
@@ -69,6 +80,7 @@ static void btn_picDetector(void)
 {
   gameMode = GAME_MODE_FREE;
   SGUI_idle(DELAY_BETWEEN_PAGES);
+  game_detector_cleaner();
   SGUI_showPage(4);
 }
 
@@ -261,8 +273,22 @@ static void page_0_init(void)
 
 static void btn_backToStart(void)
 {
-  SGUI_showPage(0);
   SGUI_idle(DELAY_BETWEEN_PAGES);
+  if(gameMode == GAME_MODE_FREE)
+  {    
+    SGUI_showPage(0);
+  }
+  else if (gameMode == GAME_MODE_GAME)
+  {
+    if(GUI.currentPage == 5)
+    {
+      SGUI_showPage(0);
+    }
+    else
+    {
+      SGUI_showPage(GUI.currentPage - 1);
+    }
+  }
 }
 
 
@@ -449,6 +475,56 @@ static void page_4_init(void)
 }
 
 
+static void page_5_init(void)
+{
+  SGUI_LinkPageToLcd(5, PAGE5_START_ADDR);
+  SGUI_setPage(5);
+  SGUI_clearPage(White);
+  SGUI_printString("Поздравляем! Теперь ты тоже - физик!", 20, 5, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+  SGUI_printString("Открыто 10 элементов Периодической таблицы Менделеева", 420, 75, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+  SGUI_printString("Приезжай в Дубну на экскурсию =)    подробности узнай на uc.jinr.ru", 20, 550, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+  SGUI_createButton(P5_B_BACK_TO_START_P,
+                    P5_B_BACK_TO_START_X0,
+                    P5_B_BACK_TO_START_Y0,
+                    P5_B_BACK_TO_START_X1,
+                    P5_B_BACK_TO_START_Y1,
+                    P5_B_BACK_TO_START_RX,
+                    P5_B_BACK_TO_START_RY,
+                    P5_B_BACK_TO_START_FW,
+                    P5_B_BACK_TO_START_BC,
+                    P5_B_BACK_TO_START_FC,
+                    P5_B_BACK_TO_START_T,
+                    P5_B_BACK_TO_START_TS,
+                    P5_B_BACK_TO_START_TC,
+                    P5_B_BACK_TO_START_TMX,
+                    P5_B_BACK_TO_START_TMY,
+                    P5_B_BACK_TO_START_STATE,
+                    P5_B_BACK_TO_START_DELAY,
+                    P5_B_BACK_TO_START_ACT);
+  SGUI_createPicture(P5_PIC_TEAM_P,
+                     P5_PIC_TEAM_PIC,
+                     P5_PIC_TEAM_X,
+                     P5_PIC_TEAM_Y,
+                     P5_PIC_TEAM_W,
+                     P5_PIC_TEAM_H,
+                     P5_PIC_TEAM_RX,
+                     P5_PIC_TEAM_RY,
+                     P5_PIC_TEAM_FW,
+                     P5_PIC_TEAM_FC);
+  SGUI_createPicture(P5_PIC_ELEMENTS_P,
+                     P5_PIC_ELEMENTS_PIC,
+                     P5_PIC_ELEMENTS_X,
+                     P5_PIC_ELEMENTS_Y,
+                     P5_PIC_ELEMENTS_W,
+                     P5_PIC_ELEMENTS_H,
+                     P5_PIC_ELEMENTS_RX,
+                     P5_PIC_ELEMENTS_RY,
+                     P5_PIC_ELEMENTS_FW,
+                     P5_PIC_ELEMENTS_FC);
+  SGUI_drawPage(5);
+}
+
+
 void gui_init(void)
 {
   GUI_pagesStorageInit();
@@ -457,8 +533,6 @@ void gui_init(void)
   page_2_init();
   page_3_init();
   page_4_init();
+  page_5_init();
   SGUI_showPage(0); 
 }
-
-
-

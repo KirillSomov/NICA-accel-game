@@ -674,6 +674,16 @@
               <FileType>1</FileType>
               <FilePath>.\lib\assets\nica_logo_8bpp.c</FilePath>
             </File>
+            <File>
+              <FileName>elements_8bpp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\assets\elements_8bpp.c</FilePath>
+            </File>
+            <File>
+              <FileName>team_8bpp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\assets\team_8bpp.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

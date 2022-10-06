@@ -3,13 +3,14 @@
 #define GAME_IONS_H
 
 
-#define GAME_IONS_BUTTONS 1
-
-
 #define GAME_IONS_PAGE 1
 
 
-#define WIN_IONS_SCORE 10
+#define GAME_IONS_BUTTONS 1
+
+
+#define WIN_IONS_SCORE 12
+#define MAX_IONS_SCORE 20
 #define GAME_IONS_WIN_COLOR 0xE380
 
 
@@ -89,8 +90,18 @@
 #define GAME_IONS_C_ACT cnvs_drawStar
 
 
+#define GAME_IONS_STATUS_BAR_AREA_X0 600
+#define GAME_IONS_STATUS_BAR_AREA_Y0 490
+#define GAME_IONS_STATUS_BAR_AREA_X1 860
+#define GAME_IONS_STATUS_BAR_AREA_Y1 590
+
+#define GAME_IONS_STATUS_BAR_TEXT_X GAME_IONS_STATUS_BAR_AREA_X0+10
+#define GAME_IONS_STATUS_BAR_TEXT_Y GAME_IONS_STATUS_BAR_AREA_Y0+15
+
+
 void game_ions_init(void);
 void game_ions_handler(void);
+void game_ions_cleaner(void);
 
 
 #endif

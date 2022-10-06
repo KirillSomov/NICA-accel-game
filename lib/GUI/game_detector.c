@@ -2,7 +2,6 @@
 #include "gui_impl.h"
 #include "game_detector.h"
 #include "stdbool.h"
-#include "stdlib.h"
 #include "swipe.h"
 
 
@@ -22,6 +21,7 @@ enum gameLinAccelLevel
 
 
 static unsigned short gameLevel = 0;
+extern unsigned short gameMode;
 static unsigned short portalMultiplier = 0;
 
 
@@ -90,8 +90,15 @@ static void btn_start(void)
 
 static void gameWin(void)
 {
-  unsigned short x = (unsigned short)(rand() % 100 + 1);
-  unsigned short y = (unsigned short)(rand() % 100 + 1);
+  unsigned short x = 0;
+  unsigned short y = 0;
+
+  for(int i = 0; i < 12; i ++)
+  {
+    ;
+    //x = (unsigned short)(rand() % 100 + 1);
+    //y = (unsigned short)(rand() % 100 + 1);
+  }
 
   //SGUI_printString();
 }
@@ -302,9 +309,16 @@ void game_detector_handler(void)
         break;
 
       case FINISH:
-        SGUI_buttonVisibility(GAME_DETECTOR_B_NEXT_P, 1, true);
-        SGUI_buttonInUsage(GAME_DETECTOR_B_NEXT_P, 1, true);
-        useSwipe(false);
+        if(gameMode == GAME_MODE_GAME)
+        {
+          SGUI_buttonVisibility(GAME_DETECTOR_B_NEXT_P, 1, true);
+          SGUI_buttonInUsage(GAME_DETECTOR_B_NEXT_P, 1, true);
+          useSwipe(false);
+        }
+        else
+        {
+          ;
+        }
         gameLevel = START;
         break;
 
@@ -312,4 +326,12 @@ void game_detector_handler(void)
         break;
     }
   }
+}
+
+
+void game_detector_cleaner(void)
+{
+  SGUI_setPage(GAME_DETECTOR_PAGE);
+  btn_clear();
+  SGUI_setPage(GUI.currentPage);
 }

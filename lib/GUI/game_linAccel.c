@@ -3,6 +3,7 @@
 #include "game_linAccel.h"
 #include "stdbool.h"
 #include "swipe.h"
+#include "Timer.h"
 
 
 enum gameLinAccelLevel
@@ -24,6 +25,7 @@ enum gameLinAccelLevel
 
 
 static unsigned short gameLevel = 0;
+extern unsigned short gameMode;
 
 
 static void btn_next(void)
@@ -55,6 +57,10 @@ static void btn_linAccelPower(void)
                        GAME_LIN_ACCEL_RIGHT_PORTAL_FW,
                        GAME_LIN_ACCEL_RIGHT_PORTAL_FC,
                        GAME_LIN_ACCEL_POWER_ON_COLOR);
+  SGUI_printString(GAME_LIN_ACCEL_STATUS_BAR_TEXT_POWER,
+                   GAME_LIN_ACCEL_STATUS_BAR_TEXT_X,
+                   GAME_LIN_ACCEL_STATUS_BAR_TEXT_Y,
+                   FONT_SIZE_32, 0xFFFF, 0x0000);
   setSwipe(GAME_LIN_ACCEL_SWIPE_PORTAL_1_X0,
            GAME_LIN_ACCEL_SWIPE_PORTAL_1_Y0,
            GAME_LIN_ACCEL_SWIPE_PORTAL_1_X1,
@@ -78,6 +84,11 @@ static void btn_clear(void)
   SGUI_buttonInUsage(2, 2, true);
   useSwipe(false);
   gameLevel = START;
+  SGUI_drawFilledFrame(GAME_LIN_ACCEL_STATUS_BAR_AREA_X0,
+                       GAME_LIN_ACCEL_STATUS_BAR_AREA_Y0,
+                       GAME_LIN_ACCEL_STATUS_BAR_AREA_X1,
+                       GAME_LIN_ACCEL_STATUS_BAR_AREA_Y1,
+                       0, 0, 0, 0xFFFF, 0xFFFF);
   SGUI_drawFilledFrame(GAME_LIN_ACCEL_LEFT_PORTAL_X0,
                        GAME_LIN_ACCEL_LEFT_PORTAL_Y0,
                        GAME_LIN_ACCEL_LEFT_PORTAL_X1,
@@ -478,6 +489,15 @@ void game_linAccel_handler(void)
                  GAME_LIN_ACCEL_SWIPE_BOOST_X1,
                  GAME_LIN_ACCEL_SWIPE_BOOST_Y1,
                  GAME_LIN_ACCEL_SWIPE_BOOST_DIRECTION);
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_STATUS_BAR_AREA_X0,
+                             GAME_LIN_ACCEL_STATUS_BAR_AREA_Y0,
+                             GAME_LIN_ACCEL_STATUS_BAR_AREA_X1,
+                             GAME_LIN_ACCEL_STATUS_BAR_AREA_Y1,
+                             0, 0, 0, 0xFFFF, 0xFFFF);
+        SGUI_printString(GAME_LIN_ACCEL_STATUS_BAR_TEXT_PORTAL,
+                         GAME_LIN_ACCEL_STATUS_BAR_TEXT_X,
+                         GAME_LIN_ACCEL_STATUS_BAR_TEXT_Y,
+                         FONT_SIZE_32, 0xFFFF, 0x0000);
 #ifdef GAME_LIN_ACCEL_DEBUG
         SGUI_drawFrame(GAME_LIN_ACCEL_SWIPE_BOOST_X0,
                        GAME_LIN_ACCEL_SWIPE_BOOST_Y0,
@@ -664,9 +684,43 @@ void game_linAccel_handler(void)
         break;
 
       case FINISH:
-        SGUI_buttonVisibility(GAME_LIN_ACCEL_B_NEXT_P, 1, true);
-        SGUI_buttonInUsage(GAME_LIN_ACCEL_B_NEXT_P, 1, true);
-        useSwipe(false);
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_STATUS_BAR_AREA_X0,
+                             GAME_LIN_ACCEL_STATUS_BAR_AREA_Y0,
+                             GAME_LIN_ACCEL_STATUS_BAR_AREA_X1,
+                             GAME_LIN_ACCEL_STATUS_BAR_AREA_Y1,
+                             0, 0, 0, 0xFFFF, 0xFFFF);
+        SGUI_printString(GAME_LIN_ACCEL_STATUS_BAR_TEXT_BOOST,
+                         GAME_LIN_ACCEL_STATUS_BAR_TEXT_X,
+                         GAME_LIN_ACCEL_STATUS_BAR_TEXT_Y,
+                         FONT_SIZE_32, 0xFFFF, 0x0000);
+        if(gameMode == GAME_MODE_GAME)
+        {
+          delay_ms(1000);
+          SGUI_drawFilledFrame(GAME_LIN_ACCEL_STATUS_BAR_AREA_X0,
+                               GAME_LIN_ACCEL_STATUS_BAR_AREA_Y0,
+                               GAME_LIN_ACCEL_STATUS_BAR_AREA_X1,
+                               GAME_LIN_ACCEL_STATUS_BAR_AREA_Y1,
+                               0, 0, 0, 0xFFFF, 0xFFFF);
+          SGUI_printString(GAME_LIN_ACCEL_STATUS_BAR_TEXT_NEXT,
+                           GAME_LIN_ACCEL_STATUS_BAR_TEXT_X,
+                           GAME_LIN_ACCEL_STATUS_BAR_TEXT_Y,
+                           FONT_SIZE_32, 0xFFFF, 0x0000);
+          delay_ms(1000);
+          SGUI_buttonVisibility(GAME_LIN_ACCEL_B_NEXT_P, 1, true);
+          SGUI_buttonInUsage(GAME_LIN_ACCEL_B_NEXT_P, 1, true);
+        }
+        else
+        {
+          SGUI_drawFilledFrame(GAME_LIN_ACCEL_STATUS_BAR_AREA_X0,
+                               GAME_LIN_ACCEL_STATUS_BAR_AREA_Y0,
+                               GAME_LIN_ACCEL_STATUS_BAR_AREA_X1,
+                               GAME_LIN_ACCEL_STATUS_BAR_AREA_Y1,
+                               0, 0, 0, 0xFFFF, 0xFFFF);
+          SGUI_printString(GAME_LIN_ACCEL_STATUS_BAR_TEXT_FREE,
+                           GAME_LIN_ACCEL_STATUS_BAR_TEXT_X,
+                           GAME_LIN_ACCEL_STATUS_BAR_TEXT_Y,
+                           FONT_SIZE_32, 0xFFFF, 0x0000);
+        }
         gameLevel = START;
         break;
 
@@ -674,4 +728,12 @@ void game_linAccel_handler(void)
         break;
     }
   }
+}
+
+
+void game_linAccel_cleaner(void)
+{
+  SGUI_setPage(GAME_LIN_ACCEL_PAGE);
+  btn_clear();
+  SGUI_setPage(GUI.currentPage);
 }
