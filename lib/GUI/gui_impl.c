@@ -346,9 +346,9 @@ static void page_2_init(void)
   SGUI_drawFilledFrame(270, 0, 275, 599, 0, 0, 0, 0, 0x6BA4);
   SGUI_printString("Ускорение пучка заряженных частиц", 380, 20, FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
   SGUI_printString("1. Включи питание ускорителя\n2. Запусти ускорительные станции\n3. Проведи пучок через ускоритель", 420, 75, FONT_SIZE_24, 0xFFFF, TEXT_COLOR);
-  SGUI_printString("Линейный ускоритель\n   тяжелых ионов", 20, 145, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Линейный ускоритель\n   тяжелых ионов", 20, 145, FONT_SIZE_24, 0xFFFF, TEXT_COLOR);
   SGUI_printString("  Ускоряет пучки\n  ионов тяжелых\n   элементов до\n  промежуточных\n    энергий ~5\nМегаЭлектронвольт.", 20, 230, FONT_SIZE_24, 0xFFFF, TEXT_COLOR);
-  SGUI_printString("1 МэВ = 1.6E-19 Дж.", 20, 435, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("1 МэВ = 1.6E-19 Дж.", 20, 435, FONT_SIZE_24, 0xFFFF, TEXT_COLOR);
   SGUI_printString(" Является частью\n комплекса NICA", 20, 500, FONT_SIZE_24, 0xFFFF, 0x0000);
   SGUI_printString("подключите станции\n к системе питания", 605, 520, FONT_SIZE_24, 0xFFFF, TEXT_COLOR);
   SGUI_createButton(P2_B_BACK_TO_START_P,

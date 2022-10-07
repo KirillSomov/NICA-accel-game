@@ -48,7 +48,7 @@ static void cnvs_drawStar(void)
 {
   unsigned short x, y;
   SGUI_getSampleTouch(&x, &y);
-  SGUI_printString("*", x, y, FONT_SIZE_48, -1, 0x0000);
+  SGUI_printString("*", x, y, FONT_SIZE_48, -1, 0x71BF);
   SGUI_labelSetText(1, 0, SGUI_intToStr(++ionsScore), GAME_IONS_L_SCORE_TS, GAME_IONS_L_SCORE_TC);
   SGUI_canvasIdle(1, 0, 100);
 }
@@ -165,7 +165,7 @@ void game_ions_handler(void)
                              GAME_IONS_STATUS_BAR_AREA_X1,
                              GAME_IONS_STATUS_BAR_AREA_Y1,
                              0, 0, 0, 0xFFFF, 0xFFFF);
-        SGUI_printString("Ионы\n  закончились:)", GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y+20, FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
+        SGUI_printString("      Ионы\n  закончились:)", GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y+20, FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
       }
     }
   }
