@@ -693,7 +693,7 @@ void game_linAccel_handler(void)
                          FONT_SIZE_32, 0xFFFF, 0x0000);
         if(gameMode == GAME_MODE_GAME)
         {
-          delay_ms(1000);
+          delay_ms(500);
           SGUI_drawFilledFrame(GAME_LIN_ACCEL_STATUS_BAR_AREA_X0,
                                GAME_LIN_ACCEL_STATUS_BAR_AREA_Y0,
                                GAME_LIN_ACCEL_STATUS_BAR_AREA_X1,
@@ -701,9 +701,9 @@ void game_linAccel_handler(void)
                                0, 0, 0, 0xFFFF, 0xFFFF);
           SGUI_printString(GAME_LIN_ACCEL_STATUS_BAR_TEXT_NEXT,
                            GAME_LIN_ACCEL_STATUS_BAR_TEXT_X,
-                           GAME_LIN_ACCEL_STATUS_BAR_TEXT_Y,
+                           GAME_LIN_ACCEL_STATUS_BAR_TEXT_Y-10,
                            FONT_SIZE_32, 0xFFFF, 0x0000);
-          delay_ms(1000);
+          delay_ms(500);
           SGUI_buttonVisibility(GAME_LIN_ACCEL_B_NEXT_P, 1, true);
           SGUI_buttonInUsage(GAME_LIN_ACCEL_B_NEXT_P, 1, true);
         }

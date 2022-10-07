@@ -3,6 +3,9 @@
 #define GAME_IONS_H
 
 
+//#define GAME_IONS_DEBUG
+
+
 #define GAME_IONS_PAGE 1
 
 
@@ -10,8 +13,12 @@
 
 
 #define WIN_IONS_SCORE 12
+#ifdef GAME_IONS_DEBUG
 #define MAX_IONS_SCORE 20
-#define GAME_IONS_WIN_COLOR 0xE380
+#else
+#define MAX_IONS_SCORE 99
+#endif
+#define GAME_IONS_WIN_COLOR 0xFB00
 
 
 #define GAME_IONS_L_SCORE_P GAME_IONS_PAGE

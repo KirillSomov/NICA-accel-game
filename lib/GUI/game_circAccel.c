@@ -703,7 +703,7 @@ void game_circAccel_handler(void)
                          GAME_CIRC_ACCEL_STATUS_BAR_TEXT_X,
                          GAME_CIRC_ACCEL_STATUS_BAR_TEXT_Y,
                          FONT_SIZE_32, 0xFFFF, 0x0000);
-        delay_ms(1000);
+        delay_ms(500);
         if(gameMode == GAME_MODE_GAME)
         {
           clearStatusBar();
@@ -711,7 +711,7 @@ void game_circAccel_handler(void)
                            GAME_CIRC_ACCEL_STATUS_BAR_TEXT_X,
                            GAME_CIRC_ACCEL_STATUS_BAR_TEXT_Y,
                            FONT_SIZE_32, 0xFFFF, 0x0000);
-          delay_ms(1000);          
+          delay_ms(500);          
           SGUI_buttonVisibility(GAME_CIRC_ACCEL_B_NEXT_P, 1, true);
           SGUI_buttonInUsage(GAME_CIRC_ACCEL_B_NEXT_P, 1, true);
         }

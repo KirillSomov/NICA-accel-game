@@ -426,15 +426,9 @@ void game_detector_handler(void)
                          GAME_DETECTOR_STATUS_BAR_TEXT_X,
                          GAME_DETECTOR_STATUS_BAR_TEXT_Y,
                          FONT_SIZE_32, 0xFFFF, 0x0000);
-        delay_ms(1000); 
+        delay_ms(1000);
         if(gameMode == GAME_MODE_GAME)
         {
-          clearStatusBar();
-          SGUI_printString(GAME_DETECTOR_STATUS_BAR_TEXT_NEXT,
-                           GAME_DETECTOR_STATUS_BAR_TEXT_X,
-                           GAME_DETECTOR_STATUS_BAR_TEXT_Y,
-                           FONT_SIZE_32, 0xFFFF, 0x0000);
-          delay_ms(1000);
           SGUI_buttonVisibility(GAME_DETECTOR_B_NEXT_P, 1, true);
           SGUI_buttonInUsage(GAME_DETECTOR_B_NEXT_P, 1, true);
         }

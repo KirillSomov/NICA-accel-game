@@ -17,7 +17,7 @@
 
 #define GAME_LIN_ACCEL_POWER_OFF_COLOR 0xAD55
 #define GAME_LIN_ACCEL_POWER_ON_COLOR 0x6DCA
-#define GAME_LIN_ACCEL_BOOST_COLOR 0xE380
+#define GAME_LIN_ACCEL_BOOST_COLOR 0xFB00
 
 
 #define GAME_LIN_ACCEL_B_NEXT_P 2
@@ -227,10 +227,10 @@
 
 #define GAME_LIN_ACCEL_STATUS_BAR_TEXT_X GAME_LIN_ACCEL_STATUS_BAR_AREA_X0
 #define GAME_LIN_ACCEL_STATUS_BAR_TEXT_Y GAME_LIN_ACCEL_STATUS_BAR_AREA_Y0+20
-#define GAME_LIN_ACCEL_STATUS_BAR_TEXT_POWER "  Отлично!\nПитание включено!"
-#define GAME_LIN_ACCEL_STATUS_BAR_TEXT_PORTAL "  Отлично!\nСтанции запущены!"
-#define GAME_LIN_ACCEL_STATUS_BAR_TEXT_BOOST "  Отлично!\nУскоритель запущен!"
-#define GAME_LIN_ACCEL_STATUS_BAR_TEXT_NEXT "Вперёд к круговому\n    ускорителю!"
+#define GAME_LIN_ACCEL_STATUS_BAR_TEXT_POWER "    Отлично!\nПитание включено!"
+#define GAME_LIN_ACCEL_STATUS_BAR_TEXT_PORTAL "    Отлично!\nСтанции запущены!"
+#define GAME_LIN_ACCEL_STATUS_BAR_TEXT_BOOST "    Отлично!\nУскоритель запущен!"
+#define GAME_LIN_ACCEL_STATUS_BAR_TEXT_NEXT "    Вперёд к\n  циклическому\n   ускорителю!"
 #define GAME_LIN_ACCEL_STATUS_BAR_TEXT_FREE "     Мини игра\n     пройдена!"
 
 

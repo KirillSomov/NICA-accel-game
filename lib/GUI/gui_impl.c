@@ -91,12 +91,12 @@ static void page_0_init(void)
   SGUI_setPage(0);
   SGUI_clearPage(White);
   SGUI_drawFilledFrame(270, 0, 275, 599, 0, 0, 0, 0, 0x6BA4);
-  SGUI_printString("Для знакомства с нами\n    ЖМИ НА ИКОНКИ", 350, 140, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("Ускорительный\nкомплекс NICA", 735, 140, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("Для знакомства с нами\n    ЖМИ НА ИКОНКИ", 310, 140, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+  SGUI_printString("Ускорительный\nкомплекс NICA", 715, 140, FONT_SIZE_32, 0xFFFF, 0x4BC6);
   SGUI_printString("ОИЯИ", 80, 260, FONT_SIZE_48, 0xFFFF, 0x4BC6);
-  SGUI_printString("основан в 1956 г.", 30, 315, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("     Наука\nсближает народы", 30, 390, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("Мы из Дубны =)", 30, 550, FONT_SIZE_24, 0xFFFF, 0x3823);
+  SGUI_printString("основан в 1956г.", 5, 315, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+  SGUI_printString("     Наука\nсближает народы", 10, 390, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+  SGUI_printString(" Мы из Дубны =)", 5, 550, FONT_SIZE_32, 0xFFFF, 0x3823);
   SGUI_createButton(P0_B_START_P,
                     P0_B_START_X0,
                     P0_B_START_Y0,
@@ -437,9 +437,9 @@ static void page_4_init(void)
   SGUI_setPage(4);
   SGUI_clearPage(White);
   SGUI_drawFilledFrame(270, 0, 275, 599, 0, 0, 0, 0, 0x6BA4);
-  SGUI_printString("Детектор элементарных частиц", 400, 20, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+  SGUI_printString("Детектор частиц", 550, 20, FONT_SIZE_32, 0xFFFF, 0x4BC6);
   SGUI_printString("1. Подготовь (закрась) фигуры с веществом\n2. Проведи пучок через вещество", 420, 75, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("  Детектор BM@N", 20, 145, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("  Детектор BM@N", 1, 145, FONT_SIZE_32, 0xFFFF, 0x4BC6);
   SGUI_printString("Эксперимент BM@N\nявляется нулевой\nфазой мега-сайенс\nпроекта NICA\n(Nuclotron-based Ion\nCollider fAcility) -\nпервым работающим\nэкспериментом на\nфиксированной мишени", 20, 220, FONT_SIZE_24, 0xFFFF, 0x4BC6);
   SGUI_printString(" Является частью\n комплекса NICA", 20, 500, FONT_SIZE_24, 0xFFFF, 0x0000);
   SGUI_createButton(P4_B_BACK_TO_START_P,
@@ -481,7 +481,7 @@ static void page_5_init(void)
   SGUI_LinkPageToLcd(5, PAGE5_START_ADDR);
   SGUI_setPage(5);
   SGUI_clearPage(White);
-  SGUI_printString("Поздравляем! Теперь ты тоже - физик!", 230, 5, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+  SGUI_printString("Поздравляем! Теперь Ты тоже - физик!", 230, 5, FONT_SIZE_32, 0xFFFF, 0x4BC6);
   SGUI_printString("     Открыто 10\n     элементов\n   Периодической\nтаблицы Менделеева", 1, P5_PIC_ELEMENTS_Y+40, FONT_SIZE_32, 0xFFFF, 0x4BC6);
   SGUI_printString("Приезжай в Дубну на экскурсию=) подробности узнай на uc.jinr.ru", 1, 550, FONT_SIZE_32, 0xFFFF, 0x4BC6);
   SGUI_createButton(P5_B_BACK_TO_START_P,
