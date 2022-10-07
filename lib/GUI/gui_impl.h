@@ -6,6 +6,9 @@
 #include "SGUI.h"
 
 
+#define TEXT_COLOR 0x0262
+
+
 #define DELAY_BETWEEN_PAGES 80
 
 

@@ -116,9 +116,13 @@ static void ionsAnimation(void)
     }
     for(int col = 0; col < IONS_COLUMNS; col++)
     {
-      if(shift+col >= IONS_ANIM_PORTAL_START+IONS_COLUMNS-2)
+      if((shift+col >= IONS_ANIM_PORTAL_START+IONS_COLUMNS-2)  && (shift+col <= IONS_ANIM_DETECTOR_START))
       {
         color = ION_COLOR_CHARGED;
+      }
+      else if((shift+col >= IONS_ANIM_DETECTOR_START)/* && (shift+col <= IONS_ANIM_DETECTOR_END)*/)
+      {
+        color = ION_COLOR_DETECTED;
       }
       else
       {
@@ -211,9 +215,9 @@ static void btn_start(void)
 
 void game_detector_init(void)
 {
-  SGUI_printString(GAME_DETECTOR_HEADER_1_TEXT, GAME_DETECTOR_HEADER_1_X, GAME_DETECTOR_HEADER_Y, FONT_SIZE_32, -1, 0x0000);
-  SGUI_printString(GAME_DETECTOR_HEADER_2_TEXT, GAME_DETECTOR_HEADER_2_X, GAME_DETECTOR_HEADER_Y, FONT_SIZE_32, -1, 0x0000);
-  SGUI_printString(GAME_DETECTOR_HEADER_3_TEXT, GAME_DETECTOR_HEADER_3_X, GAME_DETECTOR_HEADER_Y, FONT_SIZE_32, -1, 0x0000);
+  SGUI_printString(GAME_DETECTOR_HEADER_1_TEXT, GAME_DETECTOR_HEADER_1_X, GAME_DETECTOR_HEADER_Y, FONT_SIZE_32, -1, TEXT_COLOR);
+  SGUI_printString(GAME_DETECTOR_HEADER_2_TEXT, GAME_DETECTOR_HEADER_2_X, GAME_DETECTOR_HEADER_Y, FONT_SIZE_32, -1, TEXT_COLOR);
+  SGUI_printString(GAME_DETECTOR_HEADER_3_TEXT, GAME_DETECTOR_HEADER_3_X, GAME_DETECTOR_HEADER_Y, FONT_SIZE_32, -1, TEXT_COLOR);
   SGUI_createButton(GAME_DETECTOR_B_NEXT_P,
                     GAME_DETECTOR_B_NEXT_X0,
                     GAME_DETECTOR_B_NEXT_Y0,
@@ -392,7 +396,7 @@ void game_detector_handler(void)
         SGUI_printString(GAME_DETECTOR_STATUS_BAR_TEXT_ACT,
                          GAME_DETECTOR_STATUS_BAR_TEXT_X,
                          GAME_DETECTOR_STATUS_BAR_TEXT_Y,
-                         FONT_SIZE_32, 0xFFFF, 0x0000);
+                         FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
         setSwipe(GAME_DETECTOR_PORTAL_SMALL_X0,
                  GAME_DETECTOR_SWIPE_PORTAL_SMALL_Y0,
                  GAME_DETECTOR_PORTAL_SMALL_X1 + 2*portalMultiplier*GAME_DETECTOR_PORTAL_WIDTH_X,
@@ -420,12 +424,12 @@ void game_detector_handler(void)
                              GAME_DETECTOR_DETECTOR_FW,
                              GAME_DETECTOR_ACTIVE_COLOR,
                              GAME_DETECTOR_POWER_ON_COLOR);
-        drawIonBeam(IONS_ANIM_LEN*IONS_COLUMN_SHIF_X, ION_COLOR_CHARGED);
+        drawIonBeam(IONS_ANIM_LEN*IONS_COLUMN_SHIF_X, ION_COLOR_DETECTED);
         clearStatusBar();
         SGUI_printString(GAME_DETECTOR_STATUS_BAR_TEXT_DETECTOR,
                          GAME_DETECTOR_STATUS_BAR_TEXT_X,
                          GAME_DETECTOR_STATUS_BAR_TEXT_Y,
-                         FONT_SIZE_32, 0xFFFF, 0x0000);
+                         FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
         delay_ms(1000);
         if(gameMode == GAME_MODE_GAME)
         {
@@ -438,7 +442,7 @@ void game_detector_handler(void)
           SGUI_printString(GAME_DETECTOR_STATUS_BAR_TEXT_FREE,
                            GAME_DETECTOR_STATUS_BAR_TEXT_X,
                            GAME_DETECTOR_STATUS_BAR_TEXT_Y,
-                           FONT_SIZE_32, 0xFFFF, 0x0000);
+                           FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
         }
         gameLevel = FINISH;
         break;

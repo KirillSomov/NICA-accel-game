@@ -30,8 +30,8 @@ static void btn_clear(void)
                        GAME_IONS_STATUS_BAR_AREA_X1,
                        GAME_IONS_STATUS_BAR_AREA_Y1,
                        0, 0, 0, 0xFFFF, 0xFFFF);
-  SGUI_printString(GAME_IONS_T_SCORE_HEADER_T, GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y, FONT_SIZE_32, 0xFFFF, 0x4BC6);
-  SGUI_printString("ионов", 685, 545, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+  SGUI_printString(GAME_IONS_T_SCORE_HEADER_T, GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y, FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
+  SGUI_printString("ионов", 685, 545, FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
   SGUI_labelSetText(1, 0, SGUI_intToStr(ionsScore), GAME_IONS_L_SCORE_TS, GAME_IONS_L_SCORE_TC);
   SGUI_canvasActive(GAME_IONS_C_P, GAME_IONS_C_ID, true);
 }
@@ -56,8 +56,8 @@ static void cnvs_drawStar(void)
 
 void game_ions_init(void)
 {
-  SGUI_printString(GAME_IONS_T_SCORE_HEADER_T, GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y, FONT_SIZE_32, 0xFFFF, 0x4BC6);
-  SGUI_printString("ионов", 685, 545, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+  SGUI_printString(GAME_IONS_T_SCORE_HEADER_T, GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y, FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
+  SGUI_printString("ионов", 685, 545, FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
   SGUI_createLabel(GAME_IONS_L_SCORE_P,
                    GAME_IONS_L_SCORE_X0,
                    GAME_IONS_L_SCORE_Y0,
@@ -146,8 +146,8 @@ void game_ions_handler(void)
                              GAME_IONS_STATUS_BAR_AREA_X1,
                              GAME_IONS_STATUS_BAR_AREA_Y1,
                              0, 0, 0, 0xFFFF, 0xFFFF);
-        SGUI_printString("  Пучок получен!", GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y, FONT_SIZE_32, 0xFFFF, 0x4BC6);
-        SGUI_printString("Вперёд к линейному\n    ускорителю!", GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y+33, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+        SGUI_printString("  Пучок получен!", GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y, FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
+        SGUI_printString("Вперёд к линейному\n    ускорителю!", GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y+33, FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
         delay_ms(1000);
         SGUI_buttonVisibility(GAME_IONS_B_NEXT_P, 1, true);
         SGUI_buttonInUsage(GAME_IONS_B_NEXT_P, 1, true);
@@ -165,7 +165,7 @@ void game_ions_handler(void)
                              GAME_IONS_STATUS_BAR_AREA_X1,
                              GAME_IONS_STATUS_BAR_AREA_Y1,
                              0, 0, 0, 0xFFFF, 0xFFFF);
-        SGUI_printString("Ионы\n  закончились:)", GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y+20, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+        SGUI_printString("Ионы\n  закончились:)", GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y+20, FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
       }
     }
   }

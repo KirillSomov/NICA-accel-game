@@ -60,7 +60,7 @@ static void btn_linAccelPower(void)
   SGUI_printString(GAME_LIN_ACCEL_STATUS_BAR_TEXT_POWER,
                    GAME_LIN_ACCEL_STATUS_BAR_TEXT_X,
                    GAME_LIN_ACCEL_STATUS_BAR_TEXT_Y,
-                   FONT_SIZE_32, 0xFFFF, 0x0000);
+                   FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
   setSwipe(GAME_LIN_ACCEL_SWIPE_PORTAL_1_X0,
            GAME_LIN_ACCEL_SWIPE_PORTAL_1_Y0,
            GAME_LIN_ACCEL_SWIPE_PORTAL_1_X1,
@@ -499,7 +499,7 @@ void game_linAccel_handler(void)
         SGUI_printString(GAME_LIN_ACCEL_STATUS_BAR_TEXT_PORTAL,
                          GAME_LIN_ACCEL_STATUS_BAR_TEXT_X,
                          GAME_LIN_ACCEL_STATUS_BAR_TEXT_Y,
-                         FONT_SIZE_32, 0xFFFF, 0x0000);
+                         FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
 #ifdef GAME_LIN_ACCEL_DEBUG
         SGUI_drawFrame(GAME_LIN_ACCEL_SWIPE_BOOST_X0,
                        GAME_LIN_ACCEL_SWIPE_BOOST_Y0,
@@ -726,10 +726,10 @@ void game_linAccel_handler(void)
         SGUI_printString(GAME_LIN_ACCEL_STATUS_BAR_TEXT_BOOST,
                          GAME_LIN_ACCEL_STATUS_BAR_TEXT_X,
                          GAME_LIN_ACCEL_STATUS_BAR_TEXT_Y,
-                         FONT_SIZE_32, 0xFFFF, 0x0000);
+                         FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
+        delay_ms(500); 
         if(gameMode == GAME_MODE_GAME)
         {
-          delay_ms(500);
           SGUI_drawFilledFrame(GAME_LIN_ACCEL_STATUS_BAR_AREA_X0,
                                GAME_LIN_ACCEL_STATUS_BAR_AREA_Y0,
                                GAME_LIN_ACCEL_STATUS_BAR_AREA_X1,
@@ -738,7 +738,7 @@ void game_linAccel_handler(void)
           SGUI_printString(GAME_LIN_ACCEL_STATUS_BAR_TEXT_NEXT,
                            GAME_LIN_ACCEL_STATUS_BAR_TEXT_X,
                            GAME_LIN_ACCEL_STATUS_BAR_TEXT_Y-10,
-                           FONT_SIZE_32, 0xFFFF, 0x0000);
+                           FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
           delay_ms(500);
           SGUI_buttonVisibility(GAME_LIN_ACCEL_B_NEXT_P, 1, true);
           SGUI_buttonInUsage(GAME_LIN_ACCEL_B_NEXT_P, 1, true);
@@ -753,7 +753,7 @@ void game_linAccel_handler(void)
           SGUI_printString(GAME_LIN_ACCEL_STATUS_BAR_TEXT_FREE,
                            GAME_LIN_ACCEL_STATUS_BAR_TEXT_X,
                            GAME_LIN_ACCEL_STATUS_BAR_TEXT_Y,
-                           FONT_SIZE_32, 0xFFFF, 0x0000);
+                           FONT_SIZE_32, 0xFFFF, TEXT_COLOR);
         }        
         gameLevel = FINISH;
         break;
