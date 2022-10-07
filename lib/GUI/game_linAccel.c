@@ -548,6 +548,15 @@ void game_linAccel_handler(void)
                              GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y1,
                              0, 0, 0, 0,
                              GAME_LIN_ACCEL_BOOST_COLOR);
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_PORTAL_1_X0,
+                             GAME_LIN_ACCEL_PORTAL_1_Y0,
+                             GAME_LIN_ACCEL_PORTAL_1_X1,
+                             GAME_LIN_ACCEL_PORTAL_1_Y1,
+                             GAME_LIN_ACCEL_PORTAL_1_RX,
+                             GAME_LIN_ACCEL_PORTAL_1_RY,
+                             GAME_LIN_ACCEL_PORTAL_1_FW,
+                             GAME_LIN_ACCEL_PORTAL_1_FC,
+                             GAME_LIN_ACCEL_POWER_ON_COLOR);
         SGUI_drawFilledFrame(GAME_LIN_ACCEL_PORTAL_2_X0,
                              GAME_LIN_ACCEL_PORTAL_2_Y0,
                              GAME_LIN_ACCEL_PORTAL_2_X1,
@@ -579,6 +588,15 @@ void game_linAccel_handler(void)
                              GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y1,
                              0, 0, 0, 0,
                              GAME_LIN_ACCEL_BOOST_COLOR);
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_PORTAL_2_X0,
+                             GAME_LIN_ACCEL_PORTAL_2_Y0,
+                             GAME_LIN_ACCEL_PORTAL_2_X1,
+                             GAME_LIN_ACCEL_PORTAL_2_Y1,
+                             GAME_LIN_ACCEL_PORTAL_2_RX,
+                             GAME_LIN_ACCEL_PORTAL_2_RY,
+                             GAME_LIN_ACCEL_PORTAL_2_FW,
+                             GAME_LIN_ACCEL_PORTAL_2_FC,
+                             GAME_LIN_ACCEL_POWER_ON_COLOR);
         SGUI_drawFilledFrame(GAME_LIN_ACCEL_PORTAL_3_X0,
                              GAME_LIN_ACCEL_PORTAL_3_Y0,
                              GAME_LIN_ACCEL_PORTAL_3_X1,
@@ -610,6 +628,15 @@ void game_linAccel_handler(void)
                              GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y1,
                              0, 0, 0, 0,
                              GAME_LIN_ACCEL_BOOST_COLOR);
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_PORTAL_3_X0,
+                             GAME_LIN_ACCEL_PORTAL_3_Y0,
+                             GAME_LIN_ACCEL_PORTAL_3_X1,
+                             GAME_LIN_ACCEL_PORTAL_3_Y1,
+                             GAME_LIN_ACCEL_PORTAL_3_RX,
+                             GAME_LIN_ACCEL_PORTAL_3_RY,
+                             GAME_LIN_ACCEL_PORTAL_3_FW,
+                             GAME_LIN_ACCEL_PORTAL_3_FC,
+                             GAME_LIN_ACCEL_POWER_ON_COLOR);
         SGUI_drawFilledFrame(GAME_LIN_ACCEL_PORTAL_4_X0,
                              GAME_LIN_ACCEL_PORTAL_4_Y0,
                              GAME_LIN_ACCEL_PORTAL_4_X1,
@@ -641,6 +668,15 @@ void game_linAccel_handler(void)
                              GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y1,
                              0, 0, 0, 0,
                              GAME_LIN_ACCEL_BOOST_COLOR);
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_PORTAL_4_X0,
+                             GAME_LIN_ACCEL_PORTAL_4_Y0,
+                             GAME_LIN_ACCEL_PORTAL_4_X1,
+                             GAME_LIN_ACCEL_PORTAL_4_Y1,
+                             GAME_LIN_ACCEL_PORTAL_4_RX,
+                             GAME_LIN_ACCEL_PORTAL_4_RY,
+                             GAME_LIN_ACCEL_PORTAL_4_FW,
+                             GAME_LIN_ACCEL_PORTAL_4_FC,
+                             GAME_LIN_ACCEL_POWER_ON_COLOR);
         SGUI_drawFilledFrame(GAME_LIN_ACCEL_PORTAL_5_X0,
                              GAME_LIN_ACCEL_PORTAL_5_Y0,
                              GAME_LIN_ACCEL_PORTAL_5_X1,
@@ -672,15 +708,15 @@ void game_linAccel_handler(void)
                              GAME_LIN_ACCEL_SWIPE_LINE_BOOST_Y1,
                              0, 0, 0, 0,
                              GAME_LIN_ACCEL_BOOST_COLOR);
-        SGUI_drawFilledFrame(GAME_LIN_ACCEL_PORTAL_1_X0,
-                             GAME_LIN_ACCEL_PORTAL_1_Y0,
-                             GAME_LIN_ACCEL_PORTAL_1_X1,
-                             GAME_LIN_ACCEL_PORTAL_1_Y1,
-                             GAME_LIN_ACCEL_PORTAL_1_RX,
-                             GAME_LIN_ACCEL_PORTAL_1_RY,
-                             GAME_LIN_ACCEL_PORTAL_1_FW,
-                             GAME_LIN_ACCEL_PORTAL_1_FC,
-                             GAME_LIN_ACCEL_BOOST_COLOR);
+        SGUI_drawFilledFrame(GAME_LIN_ACCEL_PORTAL_5_X0,
+                             GAME_LIN_ACCEL_PORTAL_5_Y0,
+                             GAME_LIN_ACCEL_PORTAL_5_X1,
+                             GAME_LIN_ACCEL_PORTAL_5_Y1,
+                             GAME_LIN_ACCEL_PORTAL_5_RX,
+                             GAME_LIN_ACCEL_PORTAL_5_RY,
+                             GAME_LIN_ACCEL_PORTAL_5_FW,
+                             GAME_LIN_ACCEL_PORTAL_5_FC,
+                             GAME_LIN_ACCEL_POWER_ON_COLOR);
         useSwipe(false);
         SGUI_drawFilledFrame(GAME_LIN_ACCEL_STATUS_BAR_AREA_X0,
                              GAME_LIN_ACCEL_STATUS_BAR_AREA_Y0,

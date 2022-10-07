@@ -559,6 +559,12 @@ void game_circAccel_handler(void)
         break;
 
       case BOOST_2:
+        SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_2_X,
+                              GAME_CIRC_ACCEL_PORTAL_2_Y,
+                              GAME_CIRC_ACCEL_PORTAL_R,
+                              GAME_CIRC_ACCEL_PORTAL_FW,
+                              0x0000,
+                              GAME_CIRC_ACCEL_POWER_ON_COLOR);
         SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_3_X,
                               GAME_CIRC_ACCEL_PORTAL_3_Y,
                               GAME_CIRC_ACCEL_PORTAL_R,
@@ -581,6 +587,12 @@ void game_circAccel_handler(void)
         break;
 
       case BOOST_3:
+        SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_3_X,
+                              GAME_CIRC_ACCEL_PORTAL_3_Y,
+                              GAME_CIRC_ACCEL_PORTAL_R,
+                              GAME_CIRC_ACCEL_PORTAL_FW,
+                              0x0000,
+                              GAME_CIRC_ACCEL_POWER_ON_COLOR);
         SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_4_X,
                               GAME_CIRC_ACCEL_PORTAL_4_Y,
                               GAME_CIRC_ACCEL_PORTAL_R,
@@ -603,6 +615,12 @@ void game_circAccel_handler(void)
         break;
 
       case BOOST_4:
+        SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_4_X,
+                              GAME_CIRC_ACCEL_PORTAL_4_Y,
+                              GAME_CIRC_ACCEL_PORTAL_R,
+                              GAME_CIRC_ACCEL_PORTAL_FW,
+                              0x0000,
+                              GAME_CIRC_ACCEL_POWER_ON_COLOR);
         SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_5_X,
                               GAME_CIRC_ACCEL_PORTAL_5_Y,
                               GAME_CIRC_ACCEL_PORTAL_R,
@@ -625,6 +643,12 @@ void game_circAccel_handler(void)
         break;
 
       case BOOST_5:
+        SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_5_X,
+                              GAME_CIRC_ACCEL_PORTAL_5_Y,
+                              GAME_CIRC_ACCEL_PORTAL_R,
+                              GAME_CIRC_ACCEL_PORTAL_FW,
+                              0x0000,
+                              GAME_CIRC_ACCEL_POWER_ON_COLOR);
         SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_6_X,
                               GAME_CIRC_ACCEL_PORTAL_6_Y,
                               GAME_CIRC_ACCEL_PORTAL_R,
@@ -647,6 +671,12 @@ void game_circAccel_handler(void)
         break;
 
       case BOOST_6:
+        SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_6_X,
+                              GAME_CIRC_ACCEL_PORTAL_6_Y,
+                              GAME_CIRC_ACCEL_PORTAL_R,
+                              GAME_CIRC_ACCEL_PORTAL_FW,
+                              0x0000,
+                              GAME_CIRC_ACCEL_POWER_ON_COLOR);
         SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_7_X,
                               GAME_CIRC_ACCEL_PORTAL_7_Y,
                               GAME_CIRC_ACCEL_PORTAL_R,
@@ -669,6 +699,12 @@ void game_circAccel_handler(void)
         break;
 
       case BOOST_7:
+        SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_7_X,
+                              GAME_CIRC_ACCEL_PORTAL_7_Y,
+                              GAME_CIRC_ACCEL_PORTAL_R,
+                              GAME_CIRC_ACCEL_PORTAL_FW,
+                              0x0000,
+                              GAME_CIRC_ACCEL_POWER_ON_COLOR);
         SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_8_X,
                               GAME_CIRC_ACCEL_PORTAL_8_Y,
                               GAME_CIRC_ACCEL_PORTAL_R,
@@ -692,6 +728,12 @@ void game_circAccel_handler(void)
 
       case BOOST_8:
         useSwipe(false);
+        SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_8_X,
+                              GAME_CIRC_ACCEL_PORTAL_8_Y,
+                              GAME_CIRC_ACCEL_PORTAL_R,
+                              GAME_CIRC_ACCEL_PORTAL_FW,
+                              0x0000,
+                              GAME_CIRC_ACCEL_POWER_ON_COLOR);        
         SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_1_X,
                               GAME_CIRC_ACCEL_PORTAL_1_Y,
                               GAME_CIRC_ACCEL_PORTAL_R,

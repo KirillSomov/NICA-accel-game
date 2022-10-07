@@ -23,7 +23,7 @@
 #define GAME_CIRC_ACCEL_B_NEXT_RY 10
 #define GAME_CIRC_ACCEL_B_NEXT_FW 2
 #define GAME_CIRC_ACCEL_B_NEXT_BC 0x4BC6
-#define GAME_CIRC_ACCEL_B_NEXT_FC 0x21E2
+#define GAME_CIRC_ACCEL_B_NEXT_FC 0xFFFF
 #define GAME_CIRC_ACCEL_B_NEXT_T "Вперёд"
 #define GAME_CIRC_ACCEL_B_NEXT_TS FONT_SIZE_32
 #define GAME_CIRC_ACCEL_B_NEXT_TC 0xFFFF
@@ -278,7 +278,7 @@
 #define GAME_CIRC_ACCEL_STATUS_BAR_TEXT_POWER "  Отлично!\n  Питание\n включено!"
 #define GAME_CIRC_ACCEL_STATUS_BAR_TEXT_PORTAL "  Отлично!\n  Станции\n запущены!"
 #define GAME_CIRC_ACCEL_STATUS_BAR_TEXT_BOOST "  Отлично!\nУскоритель\n запущен!"
-#define GAME_CIRC_ACCEL_STATUS_BAR_TEXT_NEXT " Вперёд к\n детектору!"
+#define GAME_CIRC_ACCEL_STATUS_BAR_TEXT_NEXT " Вперёд к\nдетектору!"
 #define GAME_CIRC_ACCEL_STATUS_BAR_TEXT_FREE " Мини игра\n пройдена!"
 
 
