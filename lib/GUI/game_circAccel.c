@@ -3,9 +3,10 @@
 #include "game_circAccel.h"
 #include "stdbool.h"
 #include "swipe.h"
+#include "Timer.h"
 
 
-#define GAME_CIRC_ACCEL_DEBUG
+//#define GAME_CIRC_ACCEL_DEBUG
 
 
 static unsigned short gameLevel = 0;
@@ -30,9 +31,18 @@ enum gameCircAccelLevel
   BOOST_6,
   BOOST_7,
   BOOST_8,
-  BOOST_9,
   FINISH
 };
+
+
+static void clearStatusBar(void)
+{
+  SGUI_drawFilledFrame(GAME_CIRC_ACCEL_STATUS_BAR_AREA_X0,
+                       GAME_CIRC_ACCEL_STATUS_BAR_AREA_Y0,
+                       GAME_CIRC_ACCEL_STATUS_BAR_AREA_X1,
+                       GAME_CIRC_ACCEL_STATUS_BAR_AREA_Y1,
+                       0, 0, 0, 0xFFFF, 0xFFFF); 
+}
 
 
 static void btn_next(void)
@@ -46,16 +56,23 @@ static void btn_circAccelPower(void)
 {
   SGUI_buttonSetColor(3, 2, GAME_CIRC_ACCEL_POWER_ON_COLOR);
   SGUI_buttonInUsage(3, 2, false);
+  clearStatusBar();
+  SGUI_printString(GAME_CIRC_ACCEL_STATUS_BAR_TEXT_POWER,
+                   GAME_CIRC_ACCEL_STATUS_BAR_TEXT_X,
+                   GAME_CIRC_ACCEL_STATUS_BAR_TEXT_Y,
+                   FONT_SIZE_32, 0xFFFF, 0x0000);
   setSwipe(GAME_CIRC_ACCEL_SWIPE_PORTAL_1_X0,
            GAME_CIRC_ACCEL_SWIPE_PORTAL_1_Y0,
            GAME_CIRC_ACCEL_SWIPE_PORTAL_1_X1,
            GAME_CIRC_ACCEL_SWIPE_PORTAL_1_Y1,
            GAME_CIRC_ACCEL_SWIPE_PORTAL_1_DIRECTION);
+#ifdef GAME_CIRC_ACCEL_DEBUG
   SGUI_drawFrame(GAME_CIRC_ACCEL_SWIPE_PORTAL_1_X0,
                  GAME_CIRC_ACCEL_SWIPE_PORTAL_1_Y0,
                  GAME_CIRC_ACCEL_SWIPE_PORTAL_1_X1,
                  GAME_CIRC_ACCEL_SWIPE_PORTAL_1_Y1,
                  0, 0, 1, 0x0000);
+#endif
   useSwipe(true);
   gameLevel = PORTAL_1;
 }
@@ -63,9 +80,12 @@ static void btn_circAccelPower(void)
 
 static void btn_clear(void)
 {
+  SGUI_buttonInUsage(GAME_CIRC_ACCEL_B_NEXT_P, 1, false);
+  SGUI_buttonVisibility(GAME_CIRC_ACCEL_B_NEXT_P, 1, false);
   SGUI_buttonSetColor(3, 2, GAME_CIRC_ACCEL_POWER_OFF_COLOR);
   SGUI_buttonInUsage(3, 2, true);
   useSwipe(false);
+  clearStatusBar();
   gameLevel = START;
   
   SGUI_drawLine(GAME_CIRC_ACCEL_SWIPE_LINE_PORTAL_1_X0,
@@ -496,6 +516,11 @@ void game_circAccel_handler(void)
                               GAME_CIRC_ACCEL_PORTAL_FW,
                               0x0000,            
                               GAME_CIRC_ACCEL_POWER_ON_COLOR);
+        clearStatusBar();
+        SGUI_printString(GAME_CIRC_ACCEL_STATUS_BAR_TEXT_PORTAL,
+                         GAME_CIRC_ACCEL_STATUS_BAR_TEXT_X,
+                         GAME_CIRC_ACCEL_STATUS_BAR_TEXT_Y,
+                         FONT_SIZE_32, 0xFFFF, 0x0000);
         setSwipe(GAME_CIRC_ACCEL_SWIPE_BOOST_1_X0,
                  GAME_CIRC_ACCEL_SWIPE_BOOST_1_Y0,
                  GAME_CIRC_ACCEL_SWIPE_BOOST_1_X1,
@@ -621,7 +646,7 @@ void game_circAccel_handler(void)
         gameLevel = BOOST_6;
         break;
 
-      case BOOST_7:
+      case BOOST_6:
         SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_7_X,
                               GAME_CIRC_ACCEL_PORTAL_7_Y,
                               GAME_CIRC_ACCEL_PORTAL_R,
@@ -640,10 +665,10 @@ void game_circAccel_handler(void)
                        GAME_CIRC_ACCEL_SWIPE_BOOST_7_Y1,
                        0, 0, 1, 0x0000);
 #endif
-        gameLevel = BOOST_8;
+        gameLevel = BOOST_7;
         break;
 
-      case BOOST_8:
+      case BOOST_7:
         SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_8_X,
                               GAME_CIRC_ACCEL_PORTAL_8_Y,
                               GAME_CIRC_ACCEL_PORTAL_R,
@@ -665,28 +690,43 @@ void game_circAccel_handler(void)
         gameLevel = BOOST_8;
         break;
 
-      case BOOST_9:
+      case BOOST_8:
+        useSwipe(false);
         SGUI_drawFilledCircle(GAME_CIRC_ACCEL_PORTAL_1_X,
                               GAME_CIRC_ACCEL_PORTAL_1_Y,
                               GAME_CIRC_ACCEL_PORTAL_R,
                               GAME_CIRC_ACCEL_PORTAL_FW,
                               0x0000,
                               GAME_CIRC_ACCEL_BOOST_COLOR);
-        useSwipe(false);
-        gameLevel = FINISH;
-        break;
-
-      case FINISH:
+        clearStatusBar();
+        SGUI_printString(GAME_CIRC_ACCEL_STATUS_BAR_TEXT_BOOST,
+                         GAME_CIRC_ACCEL_STATUS_BAR_TEXT_X,
+                         GAME_CIRC_ACCEL_STATUS_BAR_TEXT_Y,
+                         FONT_SIZE_32, 0xFFFF, 0x0000);
+        delay_ms(1000);
         if(gameMode == GAME_MODE_GAME)
         {
+          clearStatusBar();
+          SGUI_printString(GAME_CIRC_ACCEL_STATUS_BAR_TEXT_NEXT,
+                           GAME_CIRC_ACCEL_STATUS_BAR_TEXT_X,
+                           GAME_CIRC_ACCEL_STATUS_BAR_TEXT_Y,
+                           FONT_SIZE_32, 0xFFFF, 0x0000);
+          delay_ms(1000);          
           SGUI_buttonVisibility(GAME_CIRC_ACCEL_B_NEXT_P, 1, true);
           SGUI_buttonInUsage(GAME_CIRC_ACCEL_B_NEXT_P, 1, true);
         }
         else
         {
-          ;
+          clearStatusBar();
+          SGUI_printString(GAME_CIRC_ACCEL_STATUS_BAR_TEXT_FREE,
+                           GAME_CIRC_ACCEL_STATUS_BAR_TEXT_X,
+                           GAME_CIRC_ACCEL_STATUS_BAR_TEXT_Y,
+                           FONT_SIZE_32, 0xFFFF, 0x0000);
         }
-        gameLevel = START;
+        gameLevel = FINISH;
+        break;
+
+      case FINISH:
         break;
 
       default:

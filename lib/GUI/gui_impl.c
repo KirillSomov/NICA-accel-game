@@ -280,8 +280,9 @@ static void btn_backToStart(void)
   }
   else if (gameMode == GAME_MODE_GAME)
   {
-    if(GUI.currentPage == 5)
+    if((GUI.currentPage == 1) || (GUI.currentPage == 5))
     {
+      gameMode = GAME_MODE_FREE;
       SGUI_showPage(0);
     }
     else
@@ -392,7 +393,7 @@ static void page_3_init(void)
   SGUI_drawFilledFrame(270, 0, 275, 599, 0, 0, 0, 0, 0x6BA4);
   SGUI_printString("Ускорение пучка заряженных частиц", 380, 20, FONT_SIZE_32, 0xFFFF, 0x4BC6);
   SGUI_printString("1. Включи питание ускорителя\n2. Запусти ускорительные станции\n    и проведи пучок через станции", 420, 75, FONT_SIZE_24, 0xFFFF, 0x4BC6);
-  SGUI_printString("  Циклический\n    ускоритель\nБустерный синхротрон", 20, 145, FONT_SIZE_24, 0xFFFF, 0x4BC6);
+  SGUI_printString("    Циклический\n    ускоритель\nБустерный синхротрон", 20, 145, FONT_SIZE_24, 0xFFFF, 0x4BC6);
   SGUI_printString(" Накапливает и\n ускоряет пучки\n ионов тяжелых\n элементов до\n энергий ~600\n МегаЭлектронвольт.", 20, 235, FONT_SIZE_24, 0xFFFF, 0x4BC6);
   SGUI_printString("1 МэВ = 1.6E-19 Дж.", 20, 435, FONT_SIZE_24, 0xFFFF, 0x4BC6);
   SGUI_printString(" Является частью\n  комплекса NICA", 20, 500, FONT_SIZE_24, 0xFFFF, 0x0000);
@@ -480,9 +481,9 @@ static void page_5_init(void)
   SGUI_LinkPageToLcd(5, PAGE5_START_ADDR);
   SGUI_setPage(5);
   SGUI_clearPage(White);
-  SGUI_printString("Поздравляем! Теперь ты тоже - физик!", 20, 5, FONT_SIZE_32, 0xFFFF, 0x4BC6);
-  SGUI_printString("Открыто 10 элементов Периодической таблицы Менделеева", 420, 75, FONT_SIZE_32, 0xFFFF, 0x4BC6);
-  SGUI_printString("Приезжай в Дубну на экскурсию =)    подробности узнай на uc.jinr.ru", 20, 550, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+  SGUI_printString("Поздравляем! Теперь ты тоже - физик!", 230, 5, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+  SGUI_printString("     Открыто 10\n     элементов\n   Периодической\nтаблицы Менделеева", 1, P5_PIC_ELEMENTS_Y+40, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+  SGUI_printString("Приезжай в Дубну на экскурсию=) подробности узнай на uc.jinr.ru", 1, 550, FONT_SIZE_32, 0xFFFF, 0x4BC6);
   SGUI_createButton(P5_B_BACK_TO_START_P,
                     P5_B_BACK_TO_START_X0,
                     P5_B_BACK_TO_START_Y0,
@@ -534,5 +535,5 @@ void gui_init(void)
   page_3_init();
   page_4_init();
   page_5_init();
-  SGUI_showPage(0); 
+  SGUI_showPage(0);
 }

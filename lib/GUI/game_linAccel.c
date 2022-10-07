@@ -80,6 +80,8 @@ static void btn_linAccelPower(void)
 
 static void btn_clear(void)
 {
+  SGUI_buttonInUsage(GAME_LIN_ACCEL_B_NEXT_P, 1, false);
+  SGUI_buttonVisibility(GAME_LIN_ACCEL_B_NEXT_P, 1, false);
   SGUI_buttonSetColor(2, 2, GAME_LIN_ACCEL_POWER_OFF_COLOR);
   SGUI_buttonInUsage(2, 2, true);
   useSwipe(false);
@@ -680,10 +682,6 @@ void game_linAccel_handler(void)
                              GAME_LIN_ACCEL_PORTAL_1_FC,
                              GAME_LIN_ACCEL_BOOST_COLOR);
         useSwipe(false);
-        gameLevel = FINISH;
-        break;
-
-      case FINISH:
         SGUI_drawFilledFrame(GAME_LIN_ACCEL_STATUS_BAR_AREA_X0,
                              GAME_LIN_ACCEL_STATUS_BAR_AREA_Y0,
                              GAME_LIN_ACCEL_STATUS_BAR_AREA_X1,
@@ -720,8 +718,11 @@ void game_linAccel_handler(void)
                            GAME_LIN_ACCEL_STATUS_BAR_TEXT_X,
                            GAME_LIN_ACCEL_STATUS_BAR_TEXT_Y,
                            FONT_SIZE_32, 0xFFFF, 0x0000);
-        }
-        gameLevel = START;
+        }        
+        gameLevel = FINISH;
+        break;
+
+      case FINISH:
         break;
 
       default:

@@ -5,6 +5,14 @@
 #include "Timer.h"
 
 
+enum gameLinAccelLevel
+{
+  START = 0,
+  FINISH
+};
+
+
+static unsigned short gameLevel = START;
 static unsigned short ionsScore = 0;
 extern unsigned short gameMode;
 
@@ -16,6 +24,7 @@ static void btn_clear(void)
   SGUI_canvasClear(1, 0);
   SGUI_canvasSetFrameColor(GAME_IONS_C_P, GAME_IONS_C_ID, GAME_IONS_C_FC);
   ionsScore = 0;
+  gameLevel = START;
   SGUI_drawFilledFrame(GAME_IONS_STATUS_BAR_AREA_X0,
                        GAME_IONS_STATUS_BAR_AREA_Y0,
                        GAME_IONS_STATUS_BAR_AREA_X1,
@@ -122,37 +131,42 @@ void game_ions_init(void)
 
 void game_ions_handler(void)
 {
-  if(gameMode == GAME_MODE_GAME)
+  if(gameLevel == START)
   {
-    if(ionsScore >= WIN_IONS_SCORE)
+    if(gameMode == GAME_MODE_GAME)
     {
-      ionsScore = 0;
-      SGUI_canvasActive(GAME_IONS_C_P, GAME_IONS_C_ID, false);
-      SGUI_canvasSetFrameColor(GAME_IONS_C_P, GAME_IONS_C_ID, GAME_IONS_WIN_COLOR);
-      SGUI_drawFilledFrame(GAME_IONS_STATUS_BAR_AREA_X0,
-                           GAME_IONS_STATUS_BAR_AREA_Y0,
-                           GAME_IONS_STATUS_BAR_AREA_X1,
-                           GAME_IONS_STATUS_BAR_AREA_Y1,
-                           0, 0, 0, 0xFFFF, 0xFFFF);
-      SGUI_printString("Пучок получен!", GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y, FONT_SIZE_32, 0xFFFF, 0x4BC6);
-      SGUI_printString("   Вперёд к\nлинейному ускорителю!", GAME_IONS_T_SCORE_HEADER_X, 530, FONT_SIZE_32, 0xFFFF, 0x4BC6);
-      delay_ms(1000);
-      SGUI_buttonVisibility(GAME_IONS_B_NEXT_P, 1, true);
-      SGUI_buttonInUsage(GAME_IONS_B_NEXT_P, 1, true);
+      if(ionsScore >= WIN_IONS_SCORE)
+      {
+        ionsScore = 0;
+        gameLevel = FINISH;
+        SGUI_canvasActive(GAME_IONS_C_P, GAME_IONS_C_ID, false);
+        SGUI_canvasSetFrameColor(GAME_IONS_C_P, GAME_IONS_C_ID, GAME_IONS_WIN_COLOR);
+        SGUI_drawFilledFrame(GAME_IONS_STATUS_BAR_AREA_X0,
+                             GAME_IONS_STATUS_BAR_AREA_Y0,
+                             GAME_IONS_STATUS_BAR_AREA_X1,
+                             GAME_IONS_STATUS_BAR_AREA_Y1,
+                             0, 0, 0, 0xFFFF, 0xFFFF);
+        SGUI_printString("  Пучок получен!", GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+        SGUI_printString("Вперёд к линейному\n    ускорителю!", GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y+33, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+        delay_ms(1000);
+        SGUI_buttonVisibility(GAME_IONS_B_NEXT_P, 1, true);
+        SGUI_buttonInUsage(GAME_IONS_B_NEXT_P, 1, true);
+      }
     }
-  }
-  else
-  {
-    if(ionsScore >= MAX_IONS_SCORE)
+    else
     {
-      SGUI_canvasActive(GAME_IONS_C_P, GAME_IONS_C_ID, false);
-      SGUI_canvasSetFrameColor(GAME_IONS_C_P, GAME_IONS_C_ID, GAME_IONS_WIN_COLOR);
-      SGUI_drawFilledFrame(GAME_IONS_STATUS_BAR_AREA_X0,
-                           GAME_IONS_STATUS_BAR_AREA_Y0,
-                           GAME_IONS_STATUS_BAR_AREA_X1,
-                           GAME_IONS_STATUS_BAR_AREA_Y1,
-                           0, 0, 0, 0xFFFF, 0xFFFF);    
-      SGUI_printString("Ионы закончились:)", GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+      if(ionsScore >= MAX_IONS_SCORE)
+      {
+        gameLevel = FINISH;
+        SGUI_canvasActive(GAME_IONS_C_P, GAME_IONS_C_ID, false);
+        SGUI_canvasSetFrameColor(GAME_IONS_C_P, GAME_IONS_C_ID, GAME_IONS_WIN_COLOR);
+        SGUI_drawFilledFrame(GAME_IONS_STATUS_BAR_AREA_X0,
+                             GAME_IONS_STATUS_BAR_AREA_Y0,
+                             GAME_IONS_STATUS_BAR_AREA_X1,
+                             GAME_IONS_STATUS_BAR_AREA_Y1,
+                             0, 0, 0, 0xFFFF, 0xFFFF);
+        SGUI_printString("Ионы\n  закончились:)", GAME_IONS_T_SCORE_HEADER_X, GAME_IONS_T_SCORE_HEADER_Y+20, FONT_SIZE_32, 0xFFFF, 0x4BC6);
+      }
     }
   }
 }
